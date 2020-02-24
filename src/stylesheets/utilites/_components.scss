@@ -1,0 +1,191 @@
+/* component customize */
+
+//
+// Progress Circle
+// https://codepen.io/felipefialho/pen/vGMJBN?editors=0110
+// ==================================================
+
+$theme-color: #0083ff;
+$back-color: #dddddd;
+$size: 6rem;
+
+.progress-circle {
+  width: $size;
+  height: $size;
+  background-color: $back-color;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+
+  &:before {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    content: attr(data-progress)'%';
+    display: flex;
+    font-size: $size / 3.8;
+    justify-content: center;
+    position: absolute;
+    left: $size/20;
+    right: $size/20;
+    top: $size/20;
+    bottom: $size/20;
+    transition: transform .2s ease;
+  }
+
+  &:after {
+    background-color: $theme-color;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      transform: scale(0.9);
+    }
+  }
+}
+
+/**
+* $step is set to 5 by default, meaning you can only use percentage classes in increments of five (e.g. 25, 30, 45, 50, and so on). This helps to reduce the size of the final CSS file. If you need a number that doesn't end in 0 or 5, you can change the text percentage while rounding the class up/down to the nearest 5.
+*/
+
+$step: 1;
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+
+@for $i from 0 through $loops {
+  .progress-circle[data-progress="#{$i * $step}"] {
+    &:after {
+      @if $i < $half {
+        $next-deg: 90deg + $increment * $i;
+        background-image:
+          linear-gradient(90deg, $back-color 50%, transparent 50%, transparent),
+          linear-gradient($next-deg, $theme-color 50%, $back-color 50%, $back-color);
+      }
+
+      @else {
+        $next-deg: -90deg + $increment * ($i - $half);
+        background-image:
+          linear-gradient($next-deg, $theme-color 50%, transparent 50%, transparent),
+          linear-gradient(270deg, $theme-color 50%, $back-color 50%, $back-color);
+      }
+    }
+  }
+}
+
+//============================================================
+
+//Button
+
+.btn {
+  padding: 0.65rem 2.3rem;
+  border-radius: 5px;
+  background-color: $theme-color;
+  color: $back-color;
+  text-align: center;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+// ================================================================
+//blink Text
+
+.text-blink {
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+// ===============================================================
+// popup module
+// reference - https://codepen.io/imprakash/pen/GgNMXO
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 7rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 5px;
+  width: 450px;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .title {
+  text-align: left;
+  color: #333;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: $theme-color;
+}
+
+.popup .content {
+  overflow: auto;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 2rem;
+}
