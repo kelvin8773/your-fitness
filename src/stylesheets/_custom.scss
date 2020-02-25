@@ -6,23 +6,23 @@ body {
 
   .App {
     margin: 2rem auto;
-    width: $content-width * 1.2;
+    width: $content-width * 1.14;
     height: $content-height * 1.28;
-    border: 5px solid $grey-4;
+    border: 5px solid $primary;
     border-radius: 50px;
     text-align: center;
     -webkit-box-shadow: 0px 1px 22px -1px rgba(0, 0, 0, 0.31);
     box-shadow: 0px 1px 22px -1px rgba(0, 0, 0, 0.31);
+    background-color: black;
 
     .App-display {
       width: $content-width;
       height: $content-height;
       border: 2px solid $grey-3;
-      border-radius: 7px;
-      margin: 3.5rem auto;
+      margin: 4.5rem auto 3.5rem auto;
+      background-color: #efeeee;
 
       .App-header {
-        border-radius: 5px 5px 0 0;
         height: $content-height * 0.06;
         padding: 1rem;
         background-color: $primary;
@@ -36,6 +36,11 @@ body {
           border: none;
           outline: none;
           color: inherit;
+
+          &:hover {
+            cursor: pointer;
+            color: $grey-4;
+          }
         }
 
         .header-right-btn {
@@ -45,13 +50,15 @@ body {
       }
 
       .App-content {
-        height: $content-height * 0.784;
+        height: $content-height * 0.73;
+        padding: 1rem;
+
+
       }
 
       .App-navbar {
-        height: $content-height * 0.109;
-        border-radius: 0 0 5px 5px;
-        background-color: $primary;
+        height: $content-height * 0.114;
+        background-color: $grey-2;
         color: #eeeeee;
         display: flex;
         justify-content: space-around;
@@ -74,7 +81,7 @@ body {
 
           &:hover {
             cursor: pointer;
-            background-color: $blue-2;
+            background-color: $blue-1;
           }
 
         }
