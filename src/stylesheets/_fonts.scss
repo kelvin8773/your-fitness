@@ -1,27 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i,900,900i|Ubuntu:400,400i,500,700&display=swap');
-
 @import url('https://fonts.googleapis.com/css?family=Fira+Code:300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap');
+
 
 /* **** Google Font family reference ****
-font-family: 'Ubuntu', sans-serif;
-font-family: 'Fira Sans', sans-serif;
+
 font-family: 'Fira Code', monospace;
 font-family: 'Viga', sans-serif;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Roboto Slab', serif;
+font-family: 'Gothic A1', ;
+font-family: 'IBM Plex Sans', ;
+
 */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gothic A1', 'IBM Plex Sans';
+  font-size: 14px;
+  color: $grey-1;
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gothic A1', 'IBM Plex Sans';
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 h2,
@@ -29,5 +32,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'IBM Plex Sans';
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+
 }
