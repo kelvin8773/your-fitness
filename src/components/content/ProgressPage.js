@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProgressPage = () => (
   <div className="progress-page">
-    Progress Page.
+    <h3>Sorry, This feature is Under construction.</h3>
   </div>
 );
 

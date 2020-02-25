@@ -124,6 +124,23 @@ body {
         .App-content {
           height: 100%;
 
+          .home-page {
+            padding: 2rem;
+          }
+
+          .addData-page {
+            padding: 2rem;
+          }
+
+          .records-page {
+            padding: 2rem;
+
+          }
+
+          .progress-page {
+            padding: 2rem;
+          }
+
           .more-page {
             .profile-row {
               padding: 1rem;
@@ -183,7 +200,6 @@ body {
             }
 
           }
-
 
         }
 
