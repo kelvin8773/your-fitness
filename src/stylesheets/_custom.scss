@@ -27,24 +27,25 @@ body {
         padding: 1rem;
         background-color: $primary;
         color: #eeeeee;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
         align-items: center;
+
+        .App-title {
+          text-align: center;
+          margin: 0 auto;
+        }
 
         button {
           background-color: inherit;
           border: none;
           outline: none;
-          color: inherit;
+          color: $primary;
 
           &:hover {
             cursor: pointer;
             color: $grey-4;
           }
-        }
-
-        .header-right-btn {
-          color: $primary;
         }
 
       }

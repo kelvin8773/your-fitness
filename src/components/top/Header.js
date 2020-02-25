@@ -6,9 +6,10 @@ const Header = () => (
       <i className="fas fa-chevron-left fa-2x" />
     </button>
     <h3 className="App-title">You.Fit</h3>
-    <button className="header-right-btn" type="button">
+    <button className="header-right-btn" type="button" >
       right
     </button>
+
   </div>
 );
 
