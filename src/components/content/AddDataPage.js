@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddDataPage = () => (
-  <div className="App-content">
+  <div className="addData-page">
     Add Data.
   </div>
 );

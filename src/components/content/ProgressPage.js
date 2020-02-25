@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProgressPage = () => (
-  <div className="App-content">
+  <div className="progress-page">
     Progress Page.
   </div>
 );

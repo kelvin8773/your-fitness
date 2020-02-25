@@ -18,70 +18,200 @@ body {
     .App-display {
       width: $content-width;
       height: $content-height;
-      border: 2px solid $grey-3;
+      border: 1px solid $grey-1;
       margin: 4.5rem auto 3.5rem auto;
-      background-color: #efeeee;
+      background-color: $background;
 
-      .App-header {
-        height: $content-height * 0.06;
-        padding: 1rem;
-        background-color: $primary;
-        color: #eeeeee;
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-        align-items: center;
+      .Login-page {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
 
-        .App-title {
-          text-align: center;
-          margin: 0 auto;
+        .App-logo {
+          margin-bottom: 1.5rem;
+          color: $blue-1;
+
+          &>* {
+            margin-bottom: 1rem;
+          }
+
+          h2 {
+            font-family: 'Viga', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+          }
+
+          i {
+            font-size: 7rem;
+          }
+
+          h3 {
+            font-style: italic;
+            font-weight: 200;
+          }
+
         }
 
-        button {
-          background-color: inherit;
-          border: none;
-          outline: none;
-          color: $primary;
+        .Login-form {
+          padding: 0 3rem;
 
-          &:hover {
-            cursor: pointer;
-            color: $grey-4;
+          input {
+            padding: 0.7rem;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            outline: none;
+            border: 2px solid #efeeee;
+            margin-bottom: 2rem;
+            text-align: center;
+
+            &:focus {
+              border: 2px solid $green-2;
+            }
+
+            &:invalid {
+              border: 2px solid $danger;
+            }
+
+          }
+
+          button {
+            background-color: $primary;
+            font-size: 1rem;
+
+            &:hover {
+              background-color: $secondary;
+            }
           }
         }
 
       }
 
-      .App-content {
-        height: $content-height * 0.73;
-        padding: 1rem;
-
-
-      }
-
-      .App-navbar {
-        height: $content-height * 0.114;
-        background-color: $grey-2;
-        color: #eeeeee;
+      .App-page {
+        height: 100%;
         display: flex;
-        justify-content: space-around;
+        flex-flow: column;
+        justify-content: space-between;
 
-        &>* {
-          width: 25%;
-          padding: 1rem;
-          font-size: 0.7rem;
-          display: flex;
-          flex-flow: column;
+
+        .App-header {
+          padding: 1.2rem;
+          background-color: $primary;
+          color: #eeeeee;
+          display: grid;
+          grid-template-columns: 10% 80% 10%;
           align-items: center;
+
+          .App-title {
+            text-align: center;
+            margin: 0 auto;
+          }
+
+          button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            color: $primary;
+
+            &:hover {
+              cursor: pointer;
+              color: $grey-4;
+            }
+          }
+
+        }
+
+        .App-content {
+          height: 100%;
+
+          .more-page {
+            .profile-row {
+              padding: 1rem;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              background-color: white;
+
+              img {
+                height: 50px;
+                width: 50px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid $primary;
+                margin-right: 0.5rem;
+
+                &:hover {
+                  border-color: $success;
+                  cursor: pointer;
+                }
+              }
+
+              .name {
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 1.5rem;
+              }
+
+              .sex {
+                color: $primary;
+                font-size: 0.6rem;
+                font-weight: 600;
+                text-align: left;
+              }
+
+            }
+
+            .menu-row {
+              border-bottom: 1px solid $white-4;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 1.2rem;
+              background-color: $white-2;
+
+              p {
+                margin-left: 1rem;
+                font-size: 1rem;
+                font-weight: 500;
+              }
+
+              &:hover {
+                cursor: pointer;
+                background-color: $white-1;
+              }
+
+            }
+
+          }
+
+
+        }
+
+        .App-navbar {
+          background-color: $grey-3;
+          color: #eeeeee;
+          display: flex;
           justify-content: space-around;
 
-          .fas {
-            margin-bottom: 0.5rem;
-          }
+          &>* {
+            width: 25%;
+            padding: 0.7rem;
+            font-size: 0.7rem;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-around;
 
-          &:hover {
-            cursor: pointer;
-            background-color: $primary;
-          }
+            .fas {
+              margin-bottom: 0.5rem;
+            }
 
+            &:hover {
+              cursor: pointer;
+              background-color: $primary;
+            }
+
+          }
         }
       }
 
