@@ -1,3 +1,87 @@
+$content-width: 375px;
+$content-height: 667px;
+
 body {
   background-color: #eeeeee;
+
+  .App {
+    margin: 2rem auto;
+    width: $content-width * 1.2;
+    height: $content-height * 1.28;
+    border: 5px solid $grey-4;
+    border-radius: 50px;
+    text-align: center;
+    -webkit-box-shadow: 0px 1px 22px -1px rgba(0, 0, 0, 0.31);
+    box-shadow: 0px 1px 22px -1px rgba(0, 0, 0, 0.31);
+
+    .App-display {
+      width: $content-width;
+      height: $content-height;
+      border: 2px solid $grey-3;
+      border-radius: 7px;
+      margin: 3.5rem auto;
+
+      .App-header {
+        border-radius: 5px 5px 0 0;
+        height: $content-height * 0.06;
+        padding: 1rem;
+        background-color: $primary;
+        color: #eeeeee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          background-color: inherit;
+          border: none;
+          outline: none;
+          color: inherit;
+        }
+
+        .header-right-btn {
+          color: $primary;
+        }
+
+      }
+
+      .App-content {
+        height: $content-height * 0.784;
+      }
+
+      .App-navbar {
+        height: $content-height * 0.109;
+        border-radius: 0 0 5px 5px;
+        background-color: $primary;
+        color: #eeeeee;
+        display: flex;
+        justify-content: space-around;
+
+        button {
+          width: 25%;
+          background-color: inherit;
+          border: none;
+          outline: none;
+          color: inherit;
+          padding: 1rem;
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: space-around;
+
+          .fas {
+            margin-bottom: 0.3rem;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: $blue-2;
+          }
+
+        }
+      }
+
+
+
+    }
+  }
 }
