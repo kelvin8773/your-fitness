@@ -6,8 +6,12 @@ export const slice = createSlice({
     name: '',
     age: 3,
     sex: '',
+    login: false,
   },
   reducers: {
+    login: state => state.login = true,
+    logout: state => state.login = false,
+
     setName: (state, action) => {
       state.name = action.payload.name;
     },

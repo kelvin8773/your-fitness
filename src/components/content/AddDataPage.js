@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Content = () => (
+const AddDataPage = () => (
   <div className="App-content">
-    Some Info.
+    Add Data.
   </div>
 );
 
-export default Content;
+export default AddDataPage;

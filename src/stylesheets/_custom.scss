@@ -64,25 +64,22 @@ body {
         display: flex;
         justify-content: space-around;
 
-        button {
+        &>* {
           width: 25%;
-          background-color: inherit;
-          border: none;
-          outline: none;
-          color: inherit;
           padding: 1rem;
+          font-size: 0.7rem;
           display: flex;
           flex-flow: column;
           align-items: center;
           justify-content: space-around;
 
           .fas {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
           }
 
           &:hover {
             cursor: pointer;
-            background-color: $blue-1;
+            background-color: $primary;
           }
 
         }
