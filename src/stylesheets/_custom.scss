@@ -123,6 +123,7 @@ body {
 
         .App-content {
           height: 100%;
+          z-index: 98;
 
           .home-page {
             padding: 2rem;
@@ -133,7 +134,79 @@ body {
           }
 
           .records-page {
-            padding: 2rem;
+
+            .activity-record {
+              display: flex;
+              flex-flow: column;
+              align-items: flex-start;
+
+              .activity-date-title {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+                font-weight: 500;
+              }
+
+              .activity-data {
+                width: 100%;
+                padding: 0.5rem 0;
+                background-color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .daily-goal {
+                  margin-left: 1.5rem;
+                  display: flex;
+                  align-items: center;
+
+                  .progress {
+                    margin-right: 0.5rem;
+                  }
+
+                  .date {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                  }
+                }
+
+                .activity-details {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  width: 36%;
+
+                  .icon {
+                    font-size: 1.1rem;
+                    color: $white-1;
+                  }
+
+                  .amount {
+                    font-size: 1rem;
+                    font-weight: 500;
+
+                    span {
+                      margin-left: 0.2rem;
+                      font-weight: 200;
+                      font-size: 0.7rem;
+                    }
+                  }
+
+                }
+
+                .right-btn {
+                  font-size: 1.1rem;
+                  color: $white-1;
+                  margin-right: 1rem;
+
+                  &:hover {
+                    cursor: pointer;
+                    color: $grey-4;
+                  }
+                }
+
+              }
+
+            }
 
           }
 
@@ -208,6 +281,7 @@ body {
           color: #eeeeee;
           display: flex;
           justify-content: space-around;
+          z-index: 99;
 
           &>* {
             width: 25%;

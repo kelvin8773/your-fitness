@@ -21,10 +21,11 @@ export const randomString = (len, an) => {
     } else if (r <= 9) {
       r += 48;
     }
-    // str += String.fromCharCode(r += (r > 9) ? (r < 36) ? 55 : 61 : 48);
+
     str += String.fromCharCode(r);
   }
   return str;
 };
 
-export const makeID = () => `U${randomString(9, 'n')}`;
+export const makeUserID = () => `U${randomString(9, 'n')}`;
+export const makeExerciseID = () => `E${randomString(11, 'n')}`;

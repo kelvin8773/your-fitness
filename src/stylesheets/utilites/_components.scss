@@ -5,9 +5,13 @@
 // https://codepen.io/felipefialho/pen/vGMJBN?editors=0110
 // ==================================================
 
-$theme-color: #0083ff;
-$back-color: #dddddd;
-$size: 6rem;
+// $theme-color: #0083ff;
+$theme-color: $blue-2;
+// $back-color: #dddddd;
+$back-color: $white-1;
+$size: 50px;
+$circle-width: $size/10;
+$font-size: $size / 4.5;
 
 .progress-circle {
   width: $size;
@@ -24,13 +28,13 @@ $size: 6rem;
     border-radius: 50%;
     content: attr(data-progress)'%';
     display: flex;
-    font-size: $size / 3.8;
+    font-size: $font-size;
     justify-content: center;
     position: absolute;
-    left: $size/20;
-    right: $size/20;
-    top: $size/20;
-    bottom: $size/20;
+    left: $circle-width;
+    right: $circle-width;
+    top: $circle-width;
+    bottom: $circle-width;
     transition: transform .2s ease;
   }
 
