@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import LoginPage from './components/LoginPage'
+import LoginPage from './components/LoginPage';
 import AppPage from './components/AppPage';
 
 function App() {

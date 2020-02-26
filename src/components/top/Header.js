@@ -14,16 +14,16 @@ const Header = () => {
       </button>
       <Link to="/" onClick={() => dispatch(setCurrentPage('You.Fit'))}>
         <h3 className="App-title">
-          {currentPage ? currentPage : 'You.Fit'}
+          {currentPage || 'You.Fit'}
         </h3>
       </Link>
-      <button className="header-right-btn" type="button" >
+      <button className="header-right-btn" type="button">
         right
       </button>
 
     </div>
   );
-}
+};
 
 
 export default Header;

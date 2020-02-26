@@ -15,7 +15,7 @@ export const slice = createSlice({
     },
     setCurrentPage: (state, action) => {
       const { payload } = action;
-      state.currentPage = payload
+      state.currentPage = payload;
     },
   },
 });

@@ -3,7 +3,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import Header from './top/Header';
@@ -21,26 +21,26 @@ const AppPage = () => (
       <Header />
       <div className="App-content">
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path='/addData'>
+          <Route exact path="/addData">
             <AddDataPage />
           </Route>
-          <Route exact path='/records'>
+          <Route exact path="/records">
             <RecordsPage />
           </Route>
-          <Route exact path='/progress'>
+          <Route exact path="/progress">
             <ProgressPage />
           </Route>
-          <Route exact path='/more'>
+          <Route exact path="/more">
             <MorePage />
           </Route>
         </Switch>
       </div>
 
       <Navbar />
-    </Router >
+    </Router>
   </div>
 );
 

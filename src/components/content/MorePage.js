@@ -12,23 +12,23 @@ const MorePage = () => (
     </div>
 
     <div className="menu-row">
-      <i className="fas fa-bullseye fa-2x"></i>
+      <i className="fas fa-bullseye fa-2x" />
       <p>Your Goal</p>
     </div>
     <div className="menu-row">
-      <i className="fas fa-envelope fa-2x"></i>
+      <i className="fas fa-envelope fa-2x" />
       <p>Mailing list</p>
     </div>
     <div className="menu-row">
-      <i className="fas fa-user fa-2x"></i>
+      <i className="fas fa-user fa-2x" />
       <p>Your profile</p>
     </div>
     <div className="menu-row">
-      <i className="fas fa-cogs fa-2x"></i>
+      <i className="fas fa-cogs fa-2x" />
       <p>Settings</p>
     </div>
     <div className="menu-row">
-      <i className="fas fa-info-circle fa-2x"></i>
+      <i className="fas fa-info-circle fa-2x" />
       <p>Help</p>
     </div>
 
