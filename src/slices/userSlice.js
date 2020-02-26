@@ -26,5 +26,7 @@ export const slice = createSlice({
 });
 
 
-export const { setName, setAge, setSex, setWeight } = slice.actions;
+export const {
+  setName, setAge, setSex, setWeight,
+} = slice.actions;
 export default slice.reducer;

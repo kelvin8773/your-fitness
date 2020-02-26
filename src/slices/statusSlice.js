@@ -16,15 +16,15 @@ export const slice = createSlice({
       },
       {
         type: 'cycling',
-        amount: 50
+        amount: 50,
       },
       {
         type: 'exercise',
-        amount: 60
+        amount: 60,
       },
       {
         type: 'swimming',
-        amount: 1000
+        amount: 1000,
       },
     ],
   },
@@ -48,14 +48,15 @@ export const slice = createSlice({
         findGoal.amount = amount;
       } else {
         state.goals.push({
-          type: type, amount: amount
+          type, amount,
         });
-
       }
-    }
+    },
   },
 });
 
-export const { sigIn, sigOut, setCurrentPage, setGoal } = slice.actions;
+export const {
+  sigIn, sigOut, setCurrentPage, setGoal,
+} = slice.actions;
 
 export default slice.reducer;

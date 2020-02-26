@@ -36,9 +36,9 @@ export const slice = createSlice({
 
       state.push({
         id: makeExerciseID(),
-        type: type,
-        date: date,
-        amount: amount,
+        type,
+        date,
+        amount,
       });
     },
     actIncrease: (state, action) => {
@@ -58,7 +58,7 @@ export const slice = createSlice({
     },
     actUpdate: (state, action) => {
       const { id, type, amount } = action.payload;
-      const actToUpdate = state.find(activity => activity.id === id)
+      const actToUpdate = state.find(activity => activity.id === id);
 
       if (actToUpdate) {
         actToUpdate.type = type;

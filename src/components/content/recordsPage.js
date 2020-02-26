@@ -2,20 +2,24 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {
   ACTIVITY_UNITS,
-  ACTIVITY_ICONS
+  ACTIVITY_ICONS,
 } from '../../helpers/constant';
 
 const RecordsPage = () => {
   const activities = useSelector(state => state.activities);
   const goals = useSelector(state => state.status.goals);
 
+  const calDailyGoal = activity => {
+    const findGoal = goals.find(goal => goal.type === activity.type);
+    return Math.floor((activity.amount / findGoal.amount) * 100);
+  };
+
   return (
     <div className="records-page">
       {
         activities.map(activity => {
-          const findGoal = goals.find(goal => goal.type === activity.type);
-          const dailyGoal = Math.floor(activity.amount / findGoal.amount * 100);
-          console.log(activity.id);
+          const dailyGoal = calDailyGoal(activity);
+
           return (
             <div key={activity.id} className="activity-record">
               <div className="activity-date-title">
@@ -46,11 +50,11 @@ const RecordsPage = () => {
 
               </div>
             </div>
-          )
+          );
         })
       }
-    </div >
+    </div>
   );
-}
+};
 
 export default RecordsPage;
