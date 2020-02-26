@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import LoginPage from './components/LoginPage';
+import AppPage from './components/AppPage';
 
 function App() {
+  const { login } = useSelector(state => state.status);
   return (
-    <div className="App text-center">
-      <h1>Your Fitness App</h1>
-      <h3>General Text</h3>
-      <p>Lorem ipsum dolor</p>
-      <i class="fas fa-heartbeat fa-3x"></i>
+    <div className="App">
+      <div className="App-display">
+        {login ? <AppPage /> : <LoginPage />}
+      </div>
     </div>
   );
 }

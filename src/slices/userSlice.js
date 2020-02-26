@@ -4,24 +4,23 @@ export const slice = createSlice({
   name: 'user',
   initialState: {
     name: '',
-    age: 3,
+    age: 0,
     sex: '',
   },
   reducers: {
     setName: (state, action) => {
-      state.name = action.payload.name;
+      state.name = action.payload;
     },
     setAge: (state, action) => {
-      state.age = action.payload.age;
+      state.age = action.payload;
     },
     setSex: (state, action) => {
-      state.sex = action.payload.sex;
+      state.sex = action.payload;
     },
 
   },
 });
 
-export const { name, age, sex } = state => state.user;
-export const { setName, setAge, setSex } = slice.actions;
 
+export const { setName, setAge, setSex } = slice.actions;
 export default slice.reducer;
