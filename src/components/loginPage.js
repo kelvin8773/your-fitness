@@ -23,7 +23,7 @@ const LoginPage = () => {
       <div className="App-logo">
         <h2>You.Fit</h2>
         <i className="fas fa-running fa-3x" />
-        <h3>Your Daily Fitness Friend!</h3>
+        <h3>Your Daily Fitness Friend.</h3>
       </div>
       <div className="Login-form">
         <form onSubmit={handleLogin} style={{ display: 'flex', flexFlow: 'column' }}>
