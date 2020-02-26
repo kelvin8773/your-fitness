@@ -1,15 +1,14 @@
 import React from 'react';
-import Header from './components/top/Header';
-import Content from './components/content/Content';
-import Navbar from './components/bottom/Navbar';
+import { useSelector } from 'react-redux';
+import LoginPage from './components/LoginPage';
+import AppPage from './components/AppPage';
 
 function App() {
+  const { login } = useSelector(state => state.status);
   return (
     <div className="App">
       <div className="App-display">
-        <Header />
-        <Content />
-        <Navbar />
+        {login ? <AppPage /> : <LoginPage />}
       </div>
     </div>
   );
