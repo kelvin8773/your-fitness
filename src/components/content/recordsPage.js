@@ -19,7 +19,6 @@ const RecordsPage = () => {
       {
         activities.map(activity => {
           const dailyGoal = calDailyGoal(activity);
-
           return (
             <div key={activity.id} className="activity-record">
               <div className="activity-date-title">

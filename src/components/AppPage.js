@@ -12,7 +12,7 @@ import Navbar from './bottom/Navbar';
 import HomePage from './content/HomePage';
 import AddDataPage from './content/AddDataPage';
 import ProgressPage from './content/ProgressPage';
-import RecordsPage from './content/recordsPage';
+import RecordsPage from './content/RecordsPage';
 import MorePage from './content/MorePage';
 
 const AppPage = () => (

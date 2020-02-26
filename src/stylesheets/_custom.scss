@@ -105,6 +105,7 @@ body {
           .App-title {
             text-align: center;
             margin: 0 auto;
+            text-transform: capitalize;
           }
 
           button {
@@ -130,43 +131,48 @@ body {
           }
 
           .addData-page {
-            margin: 0 auto;
-            padding: 2rem;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-evenly;
 
-            .addData-card {
-              border-radius: 8px;
-              width: 32%;
-              padding: 1rem;
-              margin: 0.6rem;
-              -webkit-box-shadow: 1px 1px 13px -6px #545454;
-              box-shadow: 1px 1px 8px -5px #545454;
-              transition: all .15s ease;
+            .addData-home {
+              margin: 0 auto;
+              padding: 2rem;
+              display: flex;
+              flex-flow: row wrap;
+              justify-content: space-evenly;
 
-              .icon {
-                font-size: 1.9rem;
-                color: $primary;
-                margin-bottom: 1rem;
-              }
-
-              .title {
-                font-size: 1rem;
-                font-weight: 800;
-                text-transform: capitalize;
-                color: $secondary;
-              }
-
-              &:hover {
-                cursor: pointer;
-                transform: translateY(-1.5px);
+              .addData-card {
+                border-radius: 8px;
+                width: 32%;
+                padding: 1rem;
+                margin: 0.6rem;
+                -webkit-box-shadow: 1px 1px 13px -6px #545454;
+                box-shadow: 1px 1px 8px -5px #545454;
+                transition: all .15s ease;
 
                 .icon {
-                  color: $blue-4;
+                  font-size: 1.9rem;
+                  color: $primary;
+                  margin-bottom: 1rem;
+                }
+
+                .title {
+                  font-size: 1rem;
+                  font-weight: 800;
+                  text-transform: capitalize;
+                  color: $secondary;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                  transform: translateY(-1.5px);
+
+                  .icon {
+                    color: $blue-4;
+                  }
                 }
               }
             }
+
+
           }
 
           .records-page {

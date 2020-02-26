@@ -42,18 +42,18 @@ export const slice = createSlice({
       });
     },
     actIncrease: (state, action) => {
-      const { payload } = action;
-      const actToEdit = state.find(activity => activity.id === payload);
+      const { id, amount } = action.payload;
+      const actToEdit = state.find(activity => activity.id === id);
       if (actToEdit) {
-        actToEdit.amount += 1;
+        actToEdit.amount += amount;
       }
     },
 
     actDecrease: (state, action) => {
-      const { payload } = action;
-      const actToEdit = state.find(activity => activity.id === payload);
+      const { id, amount } = action.payload;
+      const actToEdit = state.find(activity => activity.id === id);
       if (actToEdit) {
-        actToEdit.amount -= 1;
+        actToEdit.amount -= amount;
       }
     },
     actUpdate: (state, action) => {
@@ -69,5 +69,5 @@ export const slice = createSlice({
 });
 
 
-export const { actIncrease, actDecrease, actUpdate } = slice.actions;
+export const { createActivity, actIncrease, actDecrease, actUpdate } = slice.actions;
 export default slice.reducer;
