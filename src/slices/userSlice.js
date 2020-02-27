@@ -6,6 +6,7 @@ export const slice = createSlice({
     name: '',
     age: 0,
     sex: '',
+    weight: 0,
   },
   reducers: {
     setName: (state, action) => {
@@ -17,10 +18,15 @@ export const slice = createSlice({
     setSex: (state, action) => {
       state.sex = action.payload;
     },
+    setWeight: (state, action) => {
+      state.weight = action.payload;
+    },
 
   },
 });
 
 
-export const { setName, setAge, setSex } = slice.actions;
+export const {
+  setName, setAge, setSex, setWeight,
+} = slice.actions;
 export default slice.reducer;
