@@ -27,7 +27,7 @@ const AppPage = () => (
           <Route exact path="/addData">
             <AddDataPage />
           </Route>
-          <Route exact path="/records">
+          <Route exact path="/activities">
             <ActivitiesPage />
           </Route>
           <Route exact path="/progress">

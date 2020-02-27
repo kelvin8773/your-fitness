@@ -18,7 +18,7 @@ const Navbar = () => {
         Add Activities
       </Link>
       <Link
-        to="/records"
+        to="/activities"
         onClick={() => {
           dispatch(setCurrentPage('Activities'));
         }}

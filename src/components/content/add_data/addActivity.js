@@ -39,9 +39,11 @@ const AddActivity = ({ activity }) => {
       <form onSubmit={handleSubmit} className="add-activity-form">
         <p className="message">
           How many
+          {' '}
           {ACTIVITY_UNITS_LONG[activity]}
           {' '}
           you
+          {' '}
           {ACTIVITY_ACT[activity]}
           {' '}
           today?
