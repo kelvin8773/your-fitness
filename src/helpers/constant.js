@@ -13,7 +13,31 @@ export const ACTIVITY_UNITS = {
   running: 'km',
   cycling: 'km',
   exercise: 'mins',
-  swimming: 'meter',
+  swimming: 'meters',
+};
+
+export const ACTIVITY_ACT = {
+  walking: 'walk',
+  running: 'run',
+  cycling: 'bike',
+  exercise: 'workout',
+  swimming: 'swim',
+};
+
+export const ACTIVITY_UNITS_LONG = {
+  walking: 'steps',
+  running: 'kilometers',
+  cycling: 'kilometers',
+  exercise: 'minutes',
+  swimming: 'meters',
+};
+
+export const ACTIVITY_CHANGE_VALUES = {
+  walking: 500,
+  running: 1,
+  cycling: 5,
+  exercise: 5,
+  swimming: 50,
 };
 
 export const ACTIVITY_ICONS = activity => {

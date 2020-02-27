@@ -1,12 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 import {
   ACTIVITY_UNITS,
   ACTIVITY_ICONS,
 } from '../../helpers/constant';
 
 const RecordsPage = () => {
-  const activities = useSelector(state => state.activities);
+  let { activities } = useSelector(state => state);
+
   const goals = useSelector(state => state.status.goals);
 
   const calDailyGoal = activity => {
@@ -19,6 +23,15 @@ const RecordsPage = () => {
       {
         activities.map(activity => {
           const dailyGoal = calDailyGoal(activity);
+          let circleColor;
+          if (dailyGoal >= 100) {
+            circleColor = '#97e492';
+          } else if (dailyGoal >= 60) {
+            circleColor = '#42b5e8';
+          } else {
+            circleColor = '#e846a7'
+          }
+
           return (
             <div key={activity.id} className="activity-record">
               <div className="activity-date-title">
@@ -26,8 +39,18 @@ const RecordsPage = () => {
               </div>
               <div className="activity-data">
                 <div className="daily-goal">
-                  <div className="progress">
-                    <div className="progress-circle" data-progress={dailyGoal} />
+                  <div className="goal-progress">
+                    <CircularProgressbar
+                      value={dailyGoal}
+                      text={`${dailyGoal}%`}
+                      strokeWidth={7}
+                      styles={buildStyles({
+                        strokeLinecap: 'round',
+                        textSize: '23px',
+                        pathColor: `${circleColor}`,
+                        textColor: '#8696a6',
+                      })}
+                    />
                   </div>
                   <div className="date">
                     {activity.date}

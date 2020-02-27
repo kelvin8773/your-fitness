@@ -1,61 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { makeExerciseID } from '../helpers/index';
+import { makeActivityID, formatDate } from '../helpers/index';
 
 export const slice = createSlice({
   name: 'activities',
   initialState: [
     {
-      id: makeExerciseID(),
-      date: '2020-02-24',
+      id: makeActivityID(),
+      date: formatDate(new Date("2020-02-25")),
       type: 'cycling',
       amount: 45,
     },
     {
-      id: makeExerciseID(),
-      date: '2020-02-20',
-      type: 'swimming',
-      amount: 1200,
-    },
-    {
-      id: makeExerciseID(),
-      date: '2020-02-13',
+      id: makeActivityID(),
+      date: formatDate(new Date("2020-02-23")),
       type: 'running',
-      amount: 8,
+      amount: 5,
     },
-    {
-      id: makeExerciseID(),
-      date: '2020-02-10',
-      type: 'walking',
-      amount: 7500,
-    },
+
 
   ],
   reducers: {
     createActivity: (state, action) => {
-      const { type, amount, date } = action.payload;
-
-      state.push({
-        id: makeExerciseID(),
-        type,
-        date,
-        amount,
-      });
-    },
-    actIncrease: (state, action) => {
-      const { id, amount } = action.payload;
-      const actToEdit = state.find(activity => activity.id === id);
-      if (actToEdit) {
-        actToEdit.amount += amount;
-      }
+      state.unshift(action.payload);
     },
 
-    actDecrease: (state, action) => {
-      const { id, amount } = action.payload;
-      const actToEdit = state.find(activity => activity.id === id);
-      if (actToEdit) {
-        actToEdit.amount -= amount;
-      }
-    },
     actUpdate: (state, action) => {
       const { id, type, amount } = action.payload;
       const actToUpdate = state.find(activity => activity.id === id);
@@ -69,5 +37,5 @@ export const slice = createSlice({
 });
 
 
-export const { createActivity, actIncrease, actDecrease, actUpdate } = slice.actions;
+export const { createActivity, actUpdate } = slice.actions;
 export default slice.reducer;

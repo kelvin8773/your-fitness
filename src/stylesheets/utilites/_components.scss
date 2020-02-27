@@ -193,3 +193,21 @@ $half: round($loops / 2);
   line-height: 1.5rem;
   padding: 2rem;
 }
+
+// Input with validate style
+.input {
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid #efeeee;
+  text-align: center;
+
+  &:focus {
+    border: 2px solid $green-2;
+  }
+
+  &:invalid {
+    border: 2px solid $danger;
+  }
+}

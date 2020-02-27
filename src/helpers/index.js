@@ -28,4 +28,15 @@ export const randomString = (len, an) => {
 };
 
 export const makeUserID = () => `U${randomString(9, 'n')}`;
-export const makeExerciseID = () => `E${randomString(11, 'n')}`;
+export const makeActivityID = () => `A${randomString(11, 'n')}`;
+
+export const formatDate = (timestamp, format = 'S') => {
+  const LONG_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const SHORT_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  const x = new Date(timestamp);
+  var dd = x.getDate();
+  var mm = format === 'L' ? LONG_MONTHS[x.getMonth()] : SHORT_MONTHS[x.getMonth()];
+  var yyyy = x.getFullYear();
+
+  return mm + " " + dd + " " + yyyy;
+}
