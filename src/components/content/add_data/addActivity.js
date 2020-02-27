@@ -11,7 +11,7 @@ import {
   ACTIVITY_UNITS,
   ACTIVITY_ACT,
   ACTIVITY_UNITS_LONG,
-  ACTIVITY_CHANGE_VALUES
+  ACTIVITY_CHANGE_VALUES,
 } from '../../../helpers/constant';
 
 const AddActivity = ({ activity }) => {
@@ -29,7 +29,7 @@ const AddActivity = ({ activity }) => {
     }));
 
     dispatch(setCurrentPage('Add Activities'));
-  }
+  };
 
   return (
     <div className="add-activity">
@@ -37,23 +37,37 @@ const AddActivity = ({ activity }) => {
         {ACTIVITY_ICONS(activity)}
       </div>
       <form onSubmit={handleSubmit} className="add-activity-form">
-        <p className="message">How many {ACTIVITY_UNITS_LONG[activity]} you {ACTIVITY_ACT[activity]} today?</p>
+        <p className="message">
+          How many
+          {ACTIVITY_UNITS_LONG[activity]}
+          {' '}
+          you
+          {ACTIVITY_ACT[activity]}
+          {' '}
+          today?
+        </p>
         <div className="input-area">
-          <button type="button"
+          <button
+            type="button"
             className="btn"
             onClick={() => setInputAmount(inputAmount + changeAmount)}
-          >+</button>
+          >
+            +
+          </button>
           <input
             type="number"
             name="amount"
             value={inputAmount}
-            min='1'
-            onChange={(e) => setInputAmount(e.target.value)} />
+            min="1"
+            onChange={e => setInputAmount(e.target.value)}
+          />
           <button
             type="button"
             className="btn"
             onClick={() => setInputAmount(inputAmount - changeAmount)}
-          >-</button>
+          >
+            -
+          </button>
         </div>
         <p className="unit-name">
           {ACTIVITY_UNITS[activity]}
@@ -62,11 +76,11 @@ const AddActivity = ({ activity }) => {
       </form>
 
     </div>
-  )
-}
+  );
+};
 
 AddActivity.propTypes = {
-  activity: PropTypes.string,
-}
+  activity: PropTypes.string.isRequired,
+};
 
 export default AddActivity;

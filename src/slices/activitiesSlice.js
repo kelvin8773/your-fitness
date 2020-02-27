@@ -6,13 +6,13 @@ export const slice = createSlice({
   initialState: [
     {
       id: makeActivityID(),
-      date: formatDate(new Date("2020-02-25")),
+      date: formatDate(new Date('2020-02-25')),
       type: 'cycling',
       amount: 45,
     },
     {
       id: makeActivityID(),
-      date: formatDate(new Date("2020-02-23")),
+      date: formatDate(new Date('2020-02-23')),
       type: 'running',
       amount: 5,
     },

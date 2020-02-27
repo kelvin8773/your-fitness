@@ -140,8 +140,11 @@ body {
               justify-content: space-evenly;
 
               .addData-card {
+                outline: none;
+                border: none;
+                background-color: $background;
                 border-radius: 8px;
-                width: 32%;
+                width: 42%;
                 padding: 1rem;
                 margin: 0.6rem;
                 -webkit-box-shadow: 1px 1px 13px -6px #545454;
@@ -374,6 +377,8 @@ body {
             }
 
             .menu-row {
+              border: none;
+              width: 100%;
               border-bottom: 1px solid $white-4;
               display: flex;
               justify-content: flex-start;

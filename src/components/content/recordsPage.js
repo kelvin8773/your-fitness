@@ -9,7 +9,7 @@ import {
 } from '../../helpers/constant';
 
 const RecordsPage = () => {
-  let { activities } = useSelector(state => state);
+  const { activities } = useSelector(state => state);
 
   const goals = useSelector(state => state.status.goals);
 
@@ -29,7 +29,7 @@ const RecordsPage = () => {
           } else if (dailyGoal >= 60) {
             circleColor = '#42b5e8';
           } else {
-            circleColor = '#e846a7'
+            circleColor = '#e846a7';
           }
 
           return (

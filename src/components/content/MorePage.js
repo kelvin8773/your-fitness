@@ -24,7 +24,7 @@ const MorePage = () => {
       headImagePlaceHolder = './assets/images/female.jpg';
       namePlaceHolder = 'Ella Zhang';
       sexPlaceHolder = 'Female';
-  };
+  }
 
   return (
     <div className="more-page">
@@ -36,34 +36,34 @@ const MorePage = () => {
         </div>
       </div>
 
-      <div className="menu-row">
+      <button type="button" className="menu-row">
         <i className="fas fa-bullseye fa-2x" />
         <p>Your Goal</p>
-      </div>
-      <div className="menu-row">
+      </button>
+      <button type="button" className="menu-row">
         <i className="fas fa-envelope fa-2x" />
         <p>Mailing list</p>
-      </div>
-      <div className="menu-row">
+      </button>
+      <button type="button" className="menu-row">
         <i className="fas fa-user fa-2x" />
         <p>Your profile</p>
-      </div>
-      <div className="menu-row">
+      </button>
+      <button type="button" className="menu-row">
         <i className="fas fa-cogs fa-2x" />
         <p>Settings</p>
-      </div>
-      <div className="menu-row">
+      </button>
+      <button type="button" className="menu-row">
         <i className="fas fa-info-circle fa-2x" />
         <p>Help</p>
-      </div>
-      <div className="menu-row" onClick={() => dispatch(sigOut())}>
+      </button>
+      <button type="button" className="menu-row" onClick={() => dispatch(sigOut())}>
         <i className="fas fa-sign-out-alt fa-2x" />
         <p>Sign Out</p>
-      </div>
+      </button>
 
     </div>
   );
-}
+};
 
 
 export default MorePage;

@@ -10,9 +10,11 @@ const AddDataHome = () => {
     <div className="addData-home">
       {
         ACTIVITY_TYPE.map(activity => (
-          <div key={activity}
+          <button
+            type="button"
+            key={activity}
             className="addData-card"
-            onClick={() => dispatch(setCurrentPage('add ' + activity))}
+            onClick={() => dispatch(setCurrentPage(`add ${activity}`))}
           >
             <div className="icon">
               {ACTIVITY_ICONS(activity)}
@@ -20,12 +22,12 @@ const AddDataHome = () => {
             <div className="title">
               {activity}
             </div>
-          </div>
+          </button>
         ))
       }
     </div>
-  )
-}
+  );
+};
 
 
 export default AddDataHome;
