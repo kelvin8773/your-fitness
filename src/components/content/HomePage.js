@@ -11,7 +11,10 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <h2>
-        Hi, {userName}, Welcome!
+        Hi,
+        {' '}
+        {userName}
+        , Welcome!
       </h2>
       <i className="fas fa-running fa-2x" />
       <h3>What is your Goal today? </h3>
@@ -21,7 +24,7 @@ const HomePage = () => {
         onClick={() => dispatch(setCurrentPage('Add Activities'))}
         className="btn"
       >
-        Let's Start Now!
+        Start Now!
       </Link>
 
     </div>

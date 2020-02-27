@@ -12,7 +12,7 @@ const Header = () => {
     <div className="App-header">
       <Link
         to="/"
-        className={currentPage === 'You.Fit' ? "left-btn-off" : "left-btn-on"}
+        className={currentPage === 'You.Fit' ? 'left-btn-off' : 'left-btn-on'}
         onClick={() => dispatch(setCurrentPage('You.Fit'))}
       >
         <i className="fas fa-chevron-left fa-2x" />
