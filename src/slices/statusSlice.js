@@ -5,6 +5,28 @@ export const slice = createSlice({
   initialState: {
     login: false,
     currentPage: '',
+    goals: [
+      {
+        type: 'walking',
+        amount: 8000,
+      },
+      {
+        type: 'running',
+        amount: 10,
+      },
+      {
+        type: 'cycling',
+        amount: 50,
+      },
+      {
+        type: 'exercise',
+        amount: 60,
+      },
+      {
+        type: 'swimming',
+        amount: 1000,
+      },
+    ],
   },
   reducers: {
     sigIn: state => {
@@ -17,9 +39,24 @@ export const slice = createSlice({
       const { payload } = action;
       state.currentPage = payload;
     },
+    setGoal: (state, action) => {
+      const { type, amount } = action.payload;
+
+      const findGoal = state.goals.find(goal => goal.type === type);
+
+      if (findGoal) {
+        findGoal.amount = amount;
+      } else {
+        state.goals.push({
+          type, amount,
+        });
+      }
+    },
   },
 });
 
-export const { sigIn, sigOut, setCurrentPage } = slice.actions;
+export const {
+  sigIn, sigOut, setCurrentPage, setGoal,
+} = slice.actions;
 
 export default slice.reducer;

@@ -11,16 +11,16 @@ const Navbar = () => {
       <Link
         to="/addData"
         onClick={() => {
-          dispatch(setCurrentPage('Add Data'));
+          dispatch(setCurrentPage('Add Activities'));
         }}
       >
         <i className="fas fa-plus-square fa-3x" />
-        Add Data
+        Add Activities
       </Link>
       <Link
-        to="/records"
+        to="/activities"
         onClick={() => {
-          dispatch(setCurrentPage('Records'));
+          dispatch(setCurrentPage('Activities'));
         }}
       >
         <i className="fas fa-chart-line fa-3x" />

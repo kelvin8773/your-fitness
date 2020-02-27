@@ -21,10 +21,22 @@ export const randomString = (len, an) => {
     } else if (r <= 9) {
       r += 48;
     }
-    // str += String.fromCharCode(r += (r > 9) ? (r < 36) ? 55 : 61 : 48);
+
     str += String.fromCharCode(r);
   }
   return str;
 };
 
-export const makeID = () => `U${randomString(9, 'n')}`;
+export const makeUserID = () => `U${randomString(9, 'n')}`;
+export const makeActivityID = () => `A${randomString(11, 'n')}`;
+
+export const formatDate = (timestamp, format = 'S') => {
+  const LONG_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  const x = new Date(timestamp);
+  const dd = x.getDate();
+  const mm = format === 'L' ? LONG_MONTHS[x.getMonth()] : SHORT_MONTHS[x.getMonth()];
+  const yyyy = x.getFullYear();
+
+  return `${mm} ${dd} ${yyyy}`;
+};

@@ -12,7 +12,7 @@ import Navbar from './bottom/Navbar';
 import HomePage from './content/HomePage';
 import AddDataPage from './content/AddDataPage';
 import ProgressPage from './content/ProgressPage';
-import RecordsPage from './content/recordsPage';
+import ActivitiesPage from './content/activitiesPage';
 import MorePage from './content/MorePage';
 
 const AppPage = () => (
@@ -27,8 +27,8 @@ const AppPage = () => (
           <Route exact path="/addData">
             <AddDataPage />
           </Route>
-          <Route exact path="/records">
-            <RecordsPage />
+          <Route exact path="/activities">
+            <ActivitiesPage />
           </Route>
           <Route exact path="/progress">
             <ProgressPage />

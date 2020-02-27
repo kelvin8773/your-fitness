@@ -9,13 +9,13 @@ const LoginPage = () => {
 
   const handleLogin = e => {
     e.preventDefault();
-    dispatch(sigIn());
     if (inputName.length !== 0) {
       dispatch(setName(inputName));
       setInputName('');
     } else {
       dispatch(setName('Guest'));
     }
+    dispatch(sigIn());
   };
 
   return (
