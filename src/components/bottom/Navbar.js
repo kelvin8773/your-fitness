@@ -20,7 +20,7 @@ const Navbar = () => {
       <Link
         to="/records"
         onClick={() => {
-          dispatch(setCurrentPage('Records'));
+          dispatch(setCurrentPage('Activities'));
         }}
       >
         <i className="fas fa-chart-line fa-3x" />

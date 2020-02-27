@@ -8,7 +8,7 @@ import {
   ACTIVITY_ICONS,
 } from '../../helpers/constant';
 
-const RecordsPage = () => {
+const ActivitiesPage = () => {
   const { activities } = useSelector(state => state);
 
   const goals = useSelector(state => state.status.goals);
@@ -79,4 +79,4 @@ const RecordsPage = () => {
   );
 };
 
-export default RecordsPage;
+export default ActivitiesPage;
