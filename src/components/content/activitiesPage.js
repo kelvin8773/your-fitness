@@ -14,7 +14,7 @@ const ActivitiesPage = () => {
   const goals = useSelector(state => state.status.goals);
 
   const calDailyGoal = activity => {
-    const findGoal = goals.find(goal => goal.type === activity.type);
+    const findGoal = goals.find(goal => goal.kind === activity.kind);
     return Math.floor((activity.amount / findGoal.amount) * 100);
   };
 
@@ -59,11 +59,11 @@ const ActivitiesPage = () => {
 
                 <div className="activity-details">
                   <div className="icon">
-                    {ACTIVITY_ICONS(activity.type)}
+                    {ACTIVITY_ICONS(activity.kind)}
                   </div>
                   <div className="amount">
                     {activity.amount}
-                    <span>{ACTIVITY_UNITS[activity.type]}</span>
+                    <span>{ACTIVITY_UNITS[activity.kind]}</span>
                   </div>
 
                 </div>

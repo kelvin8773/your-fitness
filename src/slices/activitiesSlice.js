@@ -7,17 +7,15 @@ export const slice = createSlice({
     {
       id: makeActivityID(),
       date: formatDate(new Date('2020-02-25')),
-      type: 'cycling',
+      kind: 'cycling',
       amount: 45,
     },
     {
       id: makeActivityID(),
       date: formatDate(new Date('2020-02-23')),
-      type: 'running',
-      amount: 5,
+      kind: 'walking',
+      amount: 2350,
     },
-
-
   ],
   reducers: {
     createActivity: (state, action) => {
@@ -25,11 +23,11 @@ export const slice = createSlice({
     },
 
     actUpdate: (state, action) => {
-      const { id, type, amount } = action.payload;
+      const { id, kind, amount } = action.payload;
       const actToUpdate = state.find(activity => activity.id === id);
 
       if (actToUpdate) {
-        actToUpdate.type = type;
+        actToUpdate.kind = kind;
         actToUpdate.amount = amount;
       }
     },

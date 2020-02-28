@@ -7,23 +7,23 @@ export const slice = createSlice({
     currentPage: 'You.Fit',
     goals: [
       {
-        type: 'walking',
+        kind: 'walking',
         amount: 8000,
       },
       {
-        type: 'running',
+        kind: 'running',
         amount: 10,
       },
       {
-        type: 'cycling',
+        kind: 'cycling',
         amount: 50,
       },
       {
-        type: 'exercise',
+        kind: 'exercise',
         amount: 60,
       },
       {
-        type: 'swimming',
+        kind: 'swimming',
         amount: 1000,
       },
     ],
@@ -40,15 +40,15 @@ export const slice = createSlice({
       state.currentPage = payload;
     },
     setGoal: (state, action) => {
-      const { type, amount } = action.payload;
+      const { kind, amount } = action.payload;
 
-      const findGoal = state.goals.find(goal => goal.type === type);
+      const findGoal = state.goals.find(goal => goal.kind === kind);
 
       if (findGoal) {
         findGoal.amount = amount;
       } else {
         state.goals.push({
-          type, amount,
+          kind, amount,
         });
       }
     },
