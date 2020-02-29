@@ -22,7 +22,7 @@ export const slice = createSlice({
       state.unshift(action.payload);
     },
 
-    actUpdate: (state, action) => {
+    updateActivity: (state, action) => {
       const { id, kind, amount } = action.payload;
       const actToUpdate = state.find(activity => activity.id === id);
 
@@ -35,5 +35,5 @@ export const slice = createSlice({
 });
 
 
-export const { createActivity, actUpdate } = slice.actions;
+export const { createActivity, updateActivity } = slice.actions;
 export default slice.reducer;

@@ -55,6 +55,8 @@ export const slice = createSlice({
   },
 });
 
+
+
 export const {
   sigIn, sigOut, setCurrentPage, setGoal,
 } = slice.actions;
