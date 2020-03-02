@@ -6,7 +6,7 @@ export const slice = createSlice({
   initialState: [
     {
       id: 0,
-      name: 'Kelvin',
+      name: 'You.Fit',
       age: 35,
       sex: 'male',
     },

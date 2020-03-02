@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchUser,
-  updateUser,
   fetchUsers,
   updateUsers,
   createUser,
   addUser,
 } from '../slices/usersSlice';
-import { sigIn } from '../slices/statusSlice';
+import { sigIn, setCurrentUserID } from '../slices/statusSlice';
 
 const LoginPage = () => {
   const [inputName, setInputName] = useState('');
@@ -24,25 +22,22 @@ const LoginPage = () => {
       );
 
       if (idx !== -1) {
-        const id = users[idx].id;
-        fetchUser(2)
-          .then(response => {
-            console.log(response);
-            dispatch(updateUser(response));
-          });
+        dispatch(setCurrentUserID(users[idx].id));
       } else {
         createUser({ name: inputName })
-          .then(response => console.log(response));
-
+          .then(response => {
+            if (response) {
+              dispatch(setCurrentUserID(response.id));
+              dispatch(addUser(response));
+            }
+          });
       }
-
       dispatch(sigIn());
       setInputName('');
     } else {
       if (inputName.length === 0) alert("Please enter your name!");
       if (!ready) alert("Please make sure the server is online first!");
     }
-
   };
 
   const checkServerStatus = () => {
