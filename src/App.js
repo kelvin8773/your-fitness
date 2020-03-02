@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import LoginPage from './components/Login';
 import AppPage from './components/AppPage';
-import { fetchUsers } from './slices/userSlice';
 
 function App() {
   const { login } = useSelector(state => state.status);

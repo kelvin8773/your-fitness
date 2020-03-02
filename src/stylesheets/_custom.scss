@@ -55,6 +55,9 @@ body {
 
         .Login-form {
           padding: 0 3rem;
+          margin-bottom: 2rem;
+          display: flex;
+          flex-flow: column;
 
           input {
             padding: 0.7rem;
@@ -76,6 +79,7 @@ body {
           }
 
           button {
+            outline: none;
             background-color: $primary;
             font-size: 1rem;
 
@@ -83,6 +87,34 @@ body {
               background-color: $secondary;
             }
           }
+
+        }
+
+        .server-status {
+
+          .status-message {
+            font-style: italic;
+            margin-bottom: 0.6rem;
+
+          }
+
+          button {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.4rem 0.8rem;
+            border: 0.5px solid $blue-4;
+            border-radius: 4px;
+            color: $info;
+            outline: none;
+            background-color: inherit;
+
+            &:hover {
+              cursor: pointer;
+              color: $primary;
+            }
+
+          }
+
         }
 
       }

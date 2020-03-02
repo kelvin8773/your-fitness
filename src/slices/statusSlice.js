@@ -4,6 +4,7 @@ export const slice = createSlice({
   name: 'status',
   initialState: {
     login: false,
+    currentUserID: 0,
     currentPage: 'You.Fit',
     goals: [
       {
@@ -39,6 +40,10 @@ export const slice = createSlice({
       const { payload } = action;
       state.currentPage = payload;
     },
+    setCurrentUserID: (state, action) => {
+      const { payload } = action;
+      state.currentUserID = payload;
+    },
     setGoal: (state, action) => {
       const { kind, amount } = action.payload;
 
@@ -56,9 +61,12 @@ export const slice = createSlice({
 });
 
 
-
 export const {
-  sigIn, sigOut, setCurrentPage, setGoal,
+  sigIn,
+  sigOut,
+  setCurrentPage,
+  setCurrentUserID,
+  setGoal,
 } = slice.actions;
 
 export default slice.reducer;

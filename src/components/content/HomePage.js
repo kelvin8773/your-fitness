@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { setCurrentPage } from '../../slices/statusSlice';
 
 const HomePage = () => {
-  const userName = useSelector(state => state.user.name);
+  const { currentUserID } = useSelector(state => state.status)
+  const userName = useSelector(state => state.users.filter(user => user.id === currentUserID));
   const dispatch = useDispatch();
 
   return (

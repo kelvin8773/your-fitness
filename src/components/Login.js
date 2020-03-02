@@ -1,52 +1,97 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, fetchUsers, fetchUser } from '../slices/userSlice';
+import {
+  fetchUser,
+  updateUser,
+  fetchUsers,
+  updateUsers,
+  createUser,
+  addUser,
+} from '../slices/usersSlice';
 import { sigIn } from '../slices/statusSlice';
 
 const LoginPage = () => {
   const [inputName, setInputName] = useState('');
   const dispatch = useDispatch();
+  const users = useSelector(state => state.users);
+  const ready = users.length > 1;
 
   const handleLogin = e => {
     e.preventDefault();
-    // const name = inputName.length === 0 ? 'Guest' : inputName;
-    // dispatch(updateUser({
-    //   name: name,
-    //   sex: user.sex,
-    //   age: user.age,
-    // }));
-    // dispatch(fetchUser(3));
-    // console.log(name);
-    fetchUser(3)
-      .then(response => {
-        console.log(response);
-        dispatch(updateUser(response));
-      });
+    if (inputName.length >= 3 && ready) {
+      const idx = users.findIndex(user =>
+        user.name.split(' ')[0].toLowerCase() === inputName.toLowerCase()
+      );
 
-    dispatch(sigIn());
-    setInputName('');
+      if (idx !== -1) {
+        const id = users[idx].id;
+        fetchUser(2)
+          .then(response => {
+            console.log(response);
+            dispatch(updateUser(response));
+          });
+      } else {
+        createUser({ name: inputName })
+          .then(response => console.log(response));
+
+      }
+
+      dispatch(sigIn());
+      setInputName('');
+    } else {
+      if (inputName.length === 0) alert("Please enter your name!");
+      if (!ready) alert("Please make sure the server is online first!");
+    }
+
   };
+
+  const checkServerStatus = () => {
+    if (!ready) {
+      fetchUsers()
+        .then(response => dispatch(updateUsers(response)));
+    }
+  }
 
   return (
     <div className="Login-page">
+
       <div className="App-logo">
         <h2>You.Fit</h2>
         <i className="fas fa-running fa-3x" />
         <h3>Your Daily Fitness Friend.</h3>
       </div>
-      <div className="Login-form">
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexFlow: 'column' }}>
-          <input
-            onChange={e => setInputName(e.target.value)}
-            value={inputName}
-            type="text"
-            minLength="3"
-            maxLength="30"
-            placeholder="Input Name or Login as Guest ..."
-          />
-          <button type="submit" className="btn">Login</button>
-        </form>
+
+      <form onSubmit={handleLogin} className="Login-form">
+        <input
+          onChange={e => setInputName(e.target.value)}
+          value={inputName}
+          type="text"
+          minLength="3"
+          maxLength="30"
+          placeholder="Input Your Name to Continue ..."
+        />
+        <button type="submit" className="btn">Login</button>
+      </form>
+
+      <div className="server-status">
+        <div
+          className="status-message"
+          style={
+            ready ? { color: '#97e492', fontStyle: 'normal' } : { color: 'rgb(207, 56, 10)' }
+          }
+        >
+          Server is {ready ? 'Online' : 'Offline'} now.
+        </div>
+
+        <button
+          type="button"
+          onClick={() => checkServerStatus()}
+        >
+          Connect
+        </button>
+
       </div>
+
     </div>
   );
 };
