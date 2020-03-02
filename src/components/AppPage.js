@@ -10,19 +10,19 @@ import Header from './top/Header';
 import Navbar from './bottom/Navbar';
 
 import HomePage from './content/HomePage';
-import AddDataPage from './content/AddDataPage';
+import AddDataPage from './content/add_data/index';
 import ProgressPage from './content/ProgressPage';
 import ActivitiesPage from './content/activitiesPage';
-import MorePage from './content/MorePage';
+import MorePage from './content/more/MorePage';
 
-const AppPage = () => (
+const AppPage = ({ user }) => (
   <div className="App-page">
     <Router>
       <Header />
       <div className="App-content">
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <HomePage user={user} />
           </Route>
           <Route exact path="/addData">
             <AddDataPage />
@@ -34,7 +34,7 @@ const AppPage = () => (
             <ProgressPage />
           </Route>
           <Route exact path="/more">
-            <MorePage />
+            <MorePage user={user} />
           </Route>
         </Switch>
       </div>

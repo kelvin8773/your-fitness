@@ -3,14 +3,7 @@ import api from '../helpers/api';
 
 export const slice = createSlice({
   name: 'users',
-  initialState: [
-    {
-      id: 0,
-      name: 'You.Fit',
-      age: 35,
-      sex: 'male',
-    },
-  ],
+  initialState: [],
   reducers: {
     updateUsers: (state, action) => {
       const { payload } = action;

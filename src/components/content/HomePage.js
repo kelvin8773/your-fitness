@@ -1,15 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { setCurrentPage } from '../../slices/statusSlice';
 
-const HomePage = () => {
-  const { currentUserID } = useSelector(state => state.status)
-  const user = useSelector(state => state.users.filter(user => user.id === currentUserID))[0];
+
+const HomePage = ({ user }) => {
   const dispatch = useDispatch();
 
-  console.log(user.name, user);
   return (
     <div className="home-page">
       <h2 style={{ textTransform: "capitalize" }}>

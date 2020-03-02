@@ -4,7 +4,7 @@ export const slice = createSlice({
   name: 'status',
   initialState: {
     login: false,
-    currentUserID: 0,
+    currentUserID: null,
     currentPage: 'You.Fit',
     goals: [
       {

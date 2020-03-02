@@ -1,29 +1,33 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { sigOut } from '../../slices/statusSlice';
+import { useDispatch } from 'react-redux';
+import { sigOut } from '../../../slices/statusSlice';
 
-const MorePage = () => {
+const MorePage = ({ user }) => {
+  let headImagePlaceHolder = './assets/images/male.jpg';
+  let namePlaceHolder = 'Jonh Done';
+  let sexPlaceHolder = 'male';
   const dispatch = useDispatch();
-  const { name } = useSelector(state => state.user);
-  let namePlaceHolder;
-  let sexPlaceHolder;
-  let headImagePlaceHolder;
 
-  switch (name) {
-    case 'Guest':
-      headImagePlaceHolder = './assets/images/gregoire_vella.jpg';
-      namePlaceHolder = 'Gregoire Vella';
-      sexPlaceHolder = 'Male';
-      break;
-    case 'Kelvin':
-      headImagePlaceHolder = './assets/images/kelvin.jpg';
-      namePlaceHolder = 'Kelvin Liang';
-      sexPlaceHolder = 'Male';
-      break;
-    default:
-      headImagePlaceHolder = './assets/images/female.jpg';
-      namePlaceHolder = 'Ella Zhang';
-      sexPlaceHolder = 'Female';
+  if (user) {
+    switch (user.name) {
+      case 'Gregoire Vella':
+        headImagePlaceHolder = './assets/images/gregoire_vella.jpg';
+        namePlaceHolder = 'Gregoire Vella';
+        sexPlaceHolder = 'Male';
+        break;
+      case 'Kelvin Liang':
+        headImagePlaceHolder = './assets/images/kelvin.jpg';
+        namePlaceHolder = 'Kelvin Liang';
+        sexPlaceHolder = 'Male';
+        break;
+      default:
+        if (user.sex) {
+          headImagePlaceHolder = user.sex === 'male' ?
+            './assets/images/male.jpg' : './assets/images/female.jpg';
+        }
+        namePlaceHolder = user.name;
+        sexPlaceHolder = "User not Specified."
+    }
   }
 
   return (

@@ -27,13 +27,14 @@ const LoginPage = () => {
         createUser({ name: inputName })
           .then(response => {
             if (response) {
-              dispatch(setCurrentUserID(response.id));
               dispatch(addUser(response));
+              dispatch(setCurrentUserID(response.id));
             }
           });
       }
       dispatch(sigIn());
       setInputName('');
+
     } else {
       if (inputName.length === 0) alert("Please enter your name!");
       if (!ready) alert("Please make sure the server is online first!");
