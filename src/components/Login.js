@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../slices/userSlice';
+import { updateUser, fetchUsers, fetchUser } from '../slices/userSlice';
 import { sigIn } from '../slices/statusSlice';
 
 const LoginPage = () => {
-  const { user } = useSelector(state => state);
   const [inputName, setInputName] = useState('');
   const dispatch = useDispatch();
 
   const handleLogin = e => {
     e.preventDefault();
-    const name = inputName.length === 0 ? 'Guest' : inputName;
-    console.log(name);
-    dispatch(updateUser({
-      name: name,
-      sex: user.sex,
-      age: user.age,
-    }));
+    // const name = inputName.length === 0 ? 'Guest' : inputName;
+    // dispatch(updateUser({
+    //   name: name,
+    //   sex: user.sex,
+    //   age: user.age,
+    // }));
+    // dispatch(fetchUser(3));
+    // console.log(name);
+    fetchUser(3)
+      .then(response => {
+        console.log(response);
+        dispatch(updateUser(response));
+      });
+
     dispatch(sigIn());
     setInputName('');
   };

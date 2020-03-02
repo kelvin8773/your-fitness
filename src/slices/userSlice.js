@@ -1,28 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit';
+import api from '../helpers/api';
 
 export const slice = createSlice({
   name: 'user',
   initialState: {
-    name: '',
-    age: 30,
+    id: 1,
+    name: 'Kelvin',
+    age: 35,
     sex: 'male',
   },
   reducers: {
-    getUser: (state, action) => {
-
-    },
-
     updateUser: (state, action) => {
       const { payload } = action;
-      Object.assign(state, payload);
+      Object.assign(state, payload)
     },
-
   },
 });
 
+export async function fetchUsers() {
+  const { data } = await api.get(`/users`);
+  return data;
+}
+
+
+export async function fetchUser(uid) {
+  const { data } = await api.get(`/users/${uid}`);
+  return data;
+}
+
+
 
 export const {
-  getUser,
   updateUser,
 } = slice.actions;
 export default slice.reducer;
