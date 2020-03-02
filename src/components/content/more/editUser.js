@@ -21,19 +21,16 @@ const EditUserPage = ({ user }) => {
 
   return (
     <div className="edit-user">
-      Edit User Page
       <form action="" onSubmit={handleSubmit}>
-
-        <label htmlFor="name">You Name</label>
+        <img src="./assets/images/kelvin.jpg" alt="use-headImage" />
         <input
           type="text"
           name="name"
           value={name}
           onChange={e => setName(e.target.value)}
           minLength='3'
-          className="input-name" />
+        />
 
-        <label htmlFor="age">Age</label>
         <input
           type="number"
           name="age"
@@ -44,7 +41,7 @@ const EditUserPage = ({ user }) => {
 
         <div className="input-sex">
           <div className="radio-option">
-            <i className="fas fa-male"></i>
+            <i className="fas fa-male fa-2x"></i>
             <input
               type="radio"
               id="sex1"
@@ -57,7 +54,7 @@ const EditUserPage = ({ user }) => {
           </div>
 
           <div className="radio-option">
-            <i className="fas fa-female"></i>
+            <i className="fas fa-female fa-2x"></i>
             <input
               type="radio"
               id="sex2"
@@ -71,7 +68,7 @@ const EditUserPage = ({ user }) => {
           </div>
 
           <div className="radio-option">
-            <i className="fas fa-user-secret"></i>
+            <i className="fas fa-user-secret fa-2x"></i>
             <input
               type="radio"
               id="sex3"
@@ -80,12 +77,11 @@ const EditUserPage = ({ user }) => {
               onChange={e => setSex(e.target.value)}
               checked={sex === ""}
             />
-            <label htmlFor="sex">It is a Secret</label>
+            <label htmlFor="sex">Secret</label>
           </div>
-
         </div>
 
-        <button type="submit">
+        <button type="submit" className="btn">
           Update
         </button>
       </form>
