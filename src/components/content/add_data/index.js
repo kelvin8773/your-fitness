@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AddDataHome from './addDataHome';
+import AddDataHome from './home';
 import AddActivity from './addActivity';
 
 const AddDataPage = () => {

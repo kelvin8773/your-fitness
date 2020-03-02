@@ -1,39 +1,47 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { sigOut } from '../../../slices/statusSlice';
+import { sigOut, setCurrentPage } from '../../../slices/statusSlice';
 
-const MorePage = ({ user }) => {
+const MoreHomePage = ({ user }) => {
+  const dispatch = useDispatch();
   let headImagePlaceHolder = './assets/images/male.jpg';
   let namePlaceHolder = 'Jonh Done';
   let sexPlaceHolder = 'male';
-  const dispatch = useDispatch();
+
 
   if (user) {
     switch (user.name) {
       case 'Gregoire Vella':
         headImagePlaceHolder = './assets/images/gregoire_vella.jpg';
         namePlaceHolder = 'Gregoire Vella';
-        sexPlaceHolder = 'Male';
+        sexPlaceHolder = user.sex;
         break;
       case 'Kelvin Liang':
         headImagePlaceHolder = './assets/images/kelvin.jpg';
         namePlaceHolder = 'Kelvin Liang';
-        sexPlaceHolder = 'Male';
+        sexPlaceHolder = user.sex;
         break;
       default:
+        namePlaceHolder = user.name;
         if (user.sex) {
           headImagePlaceHolder = user.sex === 'male' ?
             './assets/images/male.jpg' : './assets/images/female.jpg';
+          sexPlaceHolder = user.sex;
+        } else {
+          sexPlaceHolder = "Secret"
         }
-        namePlaceHolder = user.name;
-        sexPlaceHolder = "User not Specified."
     }
   }
 
   return (
-    <div className="more-page">
+    <div className="more-page-home">
       <div className="profile-row">
-        <img src={headImagePlaceHolder} alt="userHead" />
+        <button
+          type="button"
+          onClick={() => dispatch(setCurrentPage('edit user'))}
+        >
+          <img src={headImagePlaceHolder} alt="userHead" />
+        </button>
         <div>
           <div className="name">{namePlaceHolder}</div>
           <div className="sex">{sexPlaceHolder}</div>
@@ -70,4 +78,4 @@ const MorePage = ({ user }) => {
 };
 
 
-export default MorePage;
+export default MoreHomePage;

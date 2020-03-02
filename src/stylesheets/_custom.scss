@@ -415,65 +415,77 @@ body {
           }
 
           .more-page {
-            .profile-row {
-              padding: 1rem;
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              background-color: white;
+            .more-page-home {
+              .profile-row {
 
-              img {
-                height: 50px;
-                width: 50px;
-                object-fit: cover;
-                border-radius: 50%;
-                border: 2px solid $primary;
-                margin-right: 0.5rem;
+                padding: 1rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                background-color: white;
+
+                button {
+                  border: none;
+                  outline: none;
+
+                  img {
+                    height: 50px;
+                    width: 50px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 2px solid $primary;
+                    margin-right: 0.5rem;
+
+                    &:hover {
+                      border-color: $success;
+                      cursor: pointer;
+                    }
+                  }
+                }
+
+
+                .name {
+                  font-size: 1rem;
+                  font-weight: 600;
+                  line-height: 1.5rem;
+                }
+
+                .sex {
+                  color: $primary;
+                  font-size: 0.6rem;
+                  font-weight: 600;
+                  text-align: left;
+                }
+
+              }
+
+              .menu-row {
+                border: none;
+                width: 100%;
+                border-bottom: 1px solid $white-4;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 1rem;
+                background-color: $white-2;
+
+                p {
+                  margin-left: 1rem;
+                  font-size: 1rem;
+                  font-weight: 500;
+                }
 
                 &:hover {
-                  border-color: $success;
                   cursor: pointer;
+                  background-color: $white-1;
                 }
-              }
 
-              .name {
-                font-size: 1rem;
-                font-weight: 600;
-                line-height: 1.5rem;
               }
-
-              .sex {
-                color: $primary;
-                font-size: 0.6rem;
-                font-weight: 600;
-                text-align: left;
-              }
-
             }
 
-            .menu-row {
-              border: none;
-              width: 100%;
-              border-bottom: 1px solid $white-4;
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              padding: 1rem;
-              background-color: $white-2;
-
-              p {
-                margin-left: 1rem;
-                font-size: 1rem;
-                font-weight: 500;
-              }
-
-              &:hover {
-                cursor: pointer;
-                background-color: $white-1;
-              }
-
+            .edit-user {
+              font-size: 1rem;
             }
-
           }
 
         }

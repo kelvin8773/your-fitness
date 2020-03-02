@@ -50,6 +50,15 @@ export async function createUser(user) {
   }
 }
 
+export async function pushUser(user) {
+  try {
+    const { status } = await api.put(`/users/${user.id}`, user);
+    if (status === 204) return true;
+  } catch (err) {
+    window.alert(err);
+  }
+}
+
 
 export const {
   updateUsers,
