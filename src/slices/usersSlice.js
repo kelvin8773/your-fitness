@@ -11,7 +11,7 @@ export const slice = createSlice({
     },
     updateUser: (state, action) => {
       const { payload } = action;
-      const idx = state.findIndex(user => user.id === payload.id)
+      const idx = state.findIndex(user => user.id === payload.id);
       if (idx !== -1) state.splice(idx, 1, payload);
     },
 
@@ -25,7 +25,7 @@ export const slice = createSlice({
 
 export async function fetchUsers() {
   try {
-    const { status, data } = await api.get(`/users`);
+    const { status, data } = await api.get('/users');
     if (status === 200) return data;
   } catch (err) {
     window.alert(err);

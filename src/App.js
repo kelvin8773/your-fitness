@@ -5,7 +5,7 @@ import AppPage from './components/AppPage';
 
 function App() {
   const { login } = useSelector(state => state.status);
-  const { currentUserID } = useSelector(state => state.status)
+  const { currentUserID } = useSelector(state => state.status);
   const user = useSelector(state => state.users.filter(user => user.id === currentUserID))[0];
   const ready = login && user;
 

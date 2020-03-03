@@ -417,7 +417,6 @@ body {
           .more-page {
             .more-page-home {
               .profile-row {
-
                 padding: 1rem;
                 display: flex;
                 justify-content: flex-start;
@@ -461,6 +460,7 @@ body {
 
               .menu-row {
                 border: none;
+                outline: none;
                 width: 100%;
                 border-bottom: 1px solid $white-4;
                 display: flex;

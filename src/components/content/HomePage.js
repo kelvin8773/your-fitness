@@ -9,8 +9,11 @@ const HomePage = ({ user }) => {
 
   return (
     <div className="home-page">
-      <h2 style={{ textTransform: "capitalize" }}>
-        Hi, {user ? user.name.split(' ')[0] : 'Guest'}!
+      <h2 style={{ textTransform: 'capitalize' }}>
+        Hi,
+        {' '}
+        {user ? user.name.split(' ')[0] : 'Guest'}
+!
       </h2>
       <i className="fas fa-running fa-2x" />
       <h3>What is your Goal today? </h3>

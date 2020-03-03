@@ -17,9 +17,7 @@ const LoginPage = () => {
   const handleLogin = e => {
     e.preventDefault();
     if (inputName.length >= 3 && ready) {
-      const idx = users.findIndex(user =>
-        user.name.split(' ')[0].toLowerCase() === inputName.toLowerCase()
-      );
+      const idx = users.findIndex(user => user.name.split(' ')[0].toLowerCase() === inputName.toLowerCase());
 
       if (idx !== -1) {
         dispatch(setCurrentUserID(users[idx].id));
@@ -34,10 +32,9 @@ const LoginPage = () => {
       }
       dispatch(sigIn());
       setInputName('');
-
     } else {
-      if (inputName.length === 0) alert("Please enter your name!");
-      if (!ready) alert("Please make sure the server is online first!");
+      if (inputName.length === 0) alert('Please enter your name!');
+      if (!ready) alert('Please make sure the server is online first!');
     }
   };
 
@@ -46,7 +43,7 @@ const LoginPage = () => {
       fetchUsers()
         .then(response => dispatch(updateUsers(response)));
     }
-  }
+  };
 
   return (
     <div className="Login-page">
@@ -76,7 +73,11 @@ const LoginPage = () => {
             ready ? { color: '#97e492', fontStyle: 'normal' } : { color: 'rgb(207, 56, 10)' }
           }
         >
-          Server is {ready ? 'Online' : 'Offline'} now.
+          Server is
+          {' '}
+          {ready ? 'Online' : 'Offline'}
+          {' '}
+now.
         </div>
 
         <button
