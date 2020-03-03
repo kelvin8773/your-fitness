@@ -1,35 +1,23 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { sigOut } from '../../slices/statusSlice';
+import { useDispatch } from 'react-redux';
+import { sigOut, setCurrentPage } from '../../../slices/statusSlice';
+import getHeadImage from '../../../helpers/headImage';
 
-const MorePage = () => {
+const MoreHomePage = ({ user }) => {
   const dispatch = useDispatch();
-  const { name } = useSelector(state => state.user);
-  let namePlaceHolder;
-  let sexPlaceHolder;
-  let headImagePlaceHolder;
-
-  switch (name) {
-    case 'Guest':
-      headImagePlaceHolder = './assets/images/gregoire_vella.jpg';
-      namePlaceHolder = 'Gregoire Vella';
-      sexPlaceHolder = 'Male';
-      break;
-    case 'Kelvin':
-      headImagePlaceHolder = './assets/images/kelvin.jpg';
-      namePlaceHolder = 'Kelvin Liang';
-      sexPlaceHolder = 'Male';
-      break;
-    default:
-      headImagePlaceHolder = './assets/images/female.jpg';
-      namePlaceHolder = 'Ella Zhang';
-      sexPlaceHolder = 'Female';
-  }
+  const namePlaceHolder = user.name ? user.name : 'Jonh Done';
+  const sexPlaceHolder = user.sex ? user.sex : 'Secret';
+  const headImage = getHeadImage(namePlaceHolder, sexPlaceHolder);
 
   return (
-    <div className="more-page">
+    <div className="more-page-home">
       <div className="profile-row">
-        <img src={headImagePlaceHolder} alt="userHead" />
+        <button
+          type="button"
+          onClick={() => dispatch(setCurrentPage('edit user'))}
+        >
+          <img src={headImage} alt="userHead" />
+        </button>
         <div>
           <div className="name">{namePlaceHolder}</div>
           <div className="sex">{sexPlaceHolder}</div>
@@ -66,4 +54,4 @@ const MorePage = () => {
 };
 
 
-export default MorePage;
+export default MoreHomePage;

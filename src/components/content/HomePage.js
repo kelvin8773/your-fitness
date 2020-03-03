@@ -1,20 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { setCurrentPage } from '../../slices/statusSlice';
 
-const HomePage = () => {
-  const userName = useSelector(state => state.user.name);
+
+const HomePage = ({ user }) => {
   const dispatch = useDispatch();
 
   return (
     <div className="home-page">
-      <h2>
+      <h2 style={{ textTransform: 'capitalize' }}>
         Hi,
         {' '}
-        {userName}
-        , Welcome!
+        {user ? user.name.split(' ')[0] : 'Guest'}
+!
       </h2>
       <i className="fas fa-running fa-2x" />
       <h3>What is your Goal today? </h3>

@@ -23,7 +23,7 @@ const AddActivity = ({ activity }) => {
     e.preventDefault();
     dispatch(createActivity({
       id: makeActivityID(),
-      type: activity,
+      kind: activity,
       date: formatDate(Date.now()),
       amount: inputAmount,
     }));

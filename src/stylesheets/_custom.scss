@@ -55,6 +55,9 @@ body {
 
         .Login-form {
           padding: 0 3rem;
+          margin-bottom: 2rem;
+          display: flex;
+          flex-flow: column;
 
           input {
             padding: 0.7rem;
@@ -76,6 +79,7 @@ body {
           }
 
           button {
+            outline: none;
             background-color: $primary;
             font-size: 1rem;
 
@@ -83,6 +87,34 @@ body {
               background-color: $secondary;
             }
           }
+
+        }
+
+        .server-status {
+
+          .status-message {
+            font-style: italic;
+            margin-bottom: 0.6rem;
+
+          }
+
+          button {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.4rem 0.8rem;
+            border: 0.5px solid $blue-4;
+            border-radius: 4px;
+            color: $info;
+            outline: none;
+            background-color: inherit;
+
+            &:hover {
+              cursor: pointer;
+              color: $primary;
+            }
+
+          }
+
         }
 
       }
@@ -383,65 +415,164 @@ body {
           }
 
           .more-page {
-            .profile-row {
-              padding: 1rem;
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              background-color: white;
+            .more-page-home {
+              .profile-row {
+                padding: 1rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                background-color: white;
 
-              img {
-                height: 50px;
-                width: 50px;
-                object-fit: cover;
-                border-radius: 50%;
-                border: 2px solid $primary;
-                margin-right: 0.5rem;
+                button {
+                  border: none;
+                  outline: none;
+
+                  img {
+                    height: 50px;
+                    width: 50px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 2px solid $primary;
+                    margin-right: 0.5rem;
+
+                    &:hover {
+                      border-color: $success;
+                      cursor: pointer;
+                    }
+                  }
+                }
+
+
+                .name {
+                  font-size: 1rem;
+                  font-weight: 600;
+                  line-height: 1.5rem;
+                }
+
+                .sex {
+                  color: $primary;
+                  font-size: 0.6rem;
+                  font-weight: 600;
+                  text-align: left;
+                }
+
+              }
+
+              .menu-row {
+                border: none;
+                outline: none;
+                width: 100%;
+                border-bottom: 1px solid $white-4;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 1rem;
+                background-color: $white-2;
+
+                p {
+                  margin-left: 1rem;
+                  font-size: 1rem;
+                  font-weight: 500;
+                }
 
                 &:hover {
-                  border-color: $success;
                   cursor: pointer;
+                  background-color: $white-1;
+                }
+
+              }
+            }
+
+            .edit-user {
+              padding: 2rem;
+              font-size: 1rem;
+              color: $secondary;
+
+              img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 50%;
+                -webkit-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                -moz-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                margin-bottom: 0.8rem;
+              }
+
+              input[name="name"],
+              input[name="age"] {
+                width: 200px;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                padding: 0.5rem;
+                border-radius: 5px;
+                color: inherit;
+                background-color: inherit;
+                transition: all 0.4s ease-in-out;
+                border: none;
+                outline: none;
+                margin-bottom: 0.5rem;
+
+                &:hover,
+                &:focus {
+                  background-color: white;
                 }
               }
 
-              .name {
-                font-size: 1rem;
-                font-weight: 600;
-                line-height: 1.5rem;
+              .input-sex {
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+                margin-bottom: 2rem;
+
+                .radio-option {
+                  margin-top: 1rem;
+                  display: flex;
+                  flex-flow: column;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 6px;
+                  transition: all 0.4s ease-in-out;
+                  width: 110px;
+                  height: 110px;
+
+                  i {
+                    font-size: 2.5rem;
+                    margin-bottom: 0.6rem;
+                  }
+
+                  input {
+                    margin-bottom: 0.7rem;
+                    border: none;
+                    outline: none;
+                  }
+
+                  label {
+                    font-size: 0.8rem;
+                    font-style: italic;
+                    font-weight: 100;
+                  }
+
+                  &:hover {
+                    cursor: pointer;
+                    background-color: white;
+                  }
+                }
               }
 
-              .sex {
-                color: $primary;
-                font-size: 0.6rem;
-                font-weight: 600;
-                text-align: left;
-              }
-
-            }
-
-            .menu-row {
-              border: none;
-              width: 100%;
-              border-bottom: 1px solid $white-4;
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              padding: 1rem;
-              background-color: $white-2;
-
-              p {
-                margin-left: 1rem;
-                font-size: 1rem;
+              button {
+                background-color: $primary;
+                font-size: inherit;
                 font-weight: 500;
-              }
+                padding: 0.7rem 4rem;
 
-              &:hover {
-                cursor: pointer;
-                background-color: $white-1;
+                &:hover {
+                  background-color: $blue-2;
+                }
               }
 
             }
-
           }
 
         }
