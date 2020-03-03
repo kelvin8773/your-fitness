@@ -59,7 +59,6 @@ export async function pushUser(user) {
   }
 }
 
-
 export const {
   updateUsers,
   updateUser,
