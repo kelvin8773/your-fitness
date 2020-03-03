@@ -18,29 +18,60 @@ const ActivitiesHomePage = () => {
     return Math.floor((activity.amount / findGoal.amount) * 100);
   };
 
+  const getDateTitle = (date) => {
+    const timeDiff = new Date() - new Date(date);
+
+    const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+
+    switch (daysDiff) {
+      case 0:
+        return 'Today';
+      case 1:
+        return 'Yesterday';
+      case 2:
+        return "Two days ago";
+      default:
+        return "Few days ago";
+    }
+  };
+
+  const getColor = (finish) => {
+    if (finish >= 100) {
+      return '#97e492';
+    } else if (finish >= 60) {
+      return '#42b5e8';
+    } else {
+      return '#e846a7';
+    }
+  };
+
+  let dateTitle;
+  let lastTitle;
+
+
   return (
     <div className="records-page">
       {
         reverseActivities.map(activity => {
           const dailyGoal = calDailyGoal(activity);
+          const circleColor = getColor(dailyGoal);
+
           const { id, kind, amount, updated_at } = activity;
           const activityDate = formatDate(updated_at);
           const activityTime = formatTime(updated_at);
 
-          let circleColor;
-          if (dailyGoal >= 100) {
-            circleColor = '#97e492';
-          } else if (dailyGoal >= 60) {
-            circleColor = '#42b5e8';
-          } else {
-            circleColor = '#e846a7';
-          }
+          const tempTitle = getDateTitle(updated_at);
+          dateTitle = (lastTitle === tempTitle || lastTitle === 'Few days ago')
+            ? null : tempTitle;
+          if (dateTitle) lastTitle = dateTitle;
 
           return (
             <div key={id + kind} className="activity-record">
-              <div className="activity-date-title">
-                {activityDate}
-              </div>
+              {dateTitle ?
+                (<div className="activity-date-title">
+                  {dateTitle}
+                </div>) : ''
+              }
               <div className="activity-data">
                 <div className="daily-goal">
                   <div className="goal-progress">
@@ -57,6 +88,10 @@ const ActivitiesHomePage = () => {
                     />
                   </div>
                   <div className="date">
+                    <p>
+                      {activityDate}
+                    </p>
+
                     {activityTime}
                   </div>
                 </div>
@@ -69,11 +104,9 @@ const ActivitiesHomePage = () => {
                     {amount}
                     <span>{ACTIVITY_UNITS[kind]}</span>
                   </div>
-
                 </div>
 
                 <i className="fas fa-chevron-right fa-2x right-btn" />
-
               </div>
             </div>
           );
