@@ -21,7 +21,7 @@ const ActivitiesPage = () => {
   const page = selectPage(currentPage);
 
   return (
-    <div className="more-page">
+    <div >
       {page}
     </div>
   );

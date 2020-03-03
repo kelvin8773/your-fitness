@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateUser, pushUser } from '../../../slices/usersSlice';
-import { setCurrentPage } from '../../../slices/statusSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser, pushUser, } from '../../../slices/usersSlice';
+import { setCurrentPage, setCurrentUser } from '../../../slices/statusSlice';
 import getHeadImage from '../../../helpers/headImage';
 
 
-const EditUserPage = ({ user }) => {
+const EditUserPage = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState(user.name);
-  const [age, setAge] = useState(user.age ? user.age : 0);
-  const [sex, setSex] = useState(user.sex ? user.sex : '');
+  const { currentUser } = useSelector(state => state.status)
+  const [name, setName] = useState(currentUser.name);
+  const [age, setAge] = useState(currentUser.age ? currentUser.age : 0);
+  const [sex, setSex] = useState(currentUser.sex ? currentUser.sex : '');
   const headImage = getHeadImage(name, sex);
 
   const handleSubmit = e => {
     e.preventDefault();
     const updatedUser = {
-      ...user, name, age, sex,
+      ...currentUser, name, sex, age: parseInt(age)
     };
     pushUser(updatedUser)
       .then(response => {
-        if (response) dispatch(updateUser(updatedUser));
+        if (response) {
+          dispatch(setCurrentUser(updatedUser));
+          dispatch(updateUser(updatedUser));
+        }
       });
     dispatch(setCurrentPage('More'));
   };

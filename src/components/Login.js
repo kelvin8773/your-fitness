@@ -6,7 +6,7 @@ import {
   createUser,
   addUser,
 } from '../slices/usersSlice';
-import { sigIn, setCurrentUserID } from '../slices/statusSlice';
+import { sigIn, setCurrentUser } from '../slices/statusSlice';
 
 const LoginPage = () => {
   const [inputName, setInputName] = useState('');
@@ -20,13 +20,13 @@ const LoginPage = () => {
       const idx = users.findIndex(user => user.name.split(' ')[0].toLowerCase() === inputName.toLowerCase());
 
       if (idx !== -1) {
-        dispatch(setCurrentUserID(users[idx].id));
+        dispatch(setCurrentUser(users[idx]));
       } else {
         createUser({ name: inputName })
           .then(response => {
             if (response) {
               dispatch(addUser(response));
-              dispatch(setCurrentUserID(response.id));
+              dispatch(setCurrentUser(response));
             }
           });
       }
@@ -77,7 +77,7 @@ const LoginPage = () => {
           {' '}
           {ready ? 'Online' : 'Offline'}
           {' '}
-now.
+          now.
         </div>
 
         <button

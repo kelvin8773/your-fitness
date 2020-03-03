@@ -5,14 +5,13 @@ import AppPage from './components/AppPage';
 
 function App() {
   const { login } = useSelector(state => state.status);
-  const { currentUserID } = useSelector(state => state.status);
-  const user = useSelector(state => state.users.filter(user => user.id === currentUserID))[0];
-  const ready = login && user;
+  const { currentUser } = useSelector(state => state.status);
+  const ready = login && currentUser.name;
 
   return (
     <div className="App">
       <div className="App-display">
-        {ready ? <AppPage user={user} /> : <LoginPage />}
+        {ready ? <AppPage /> : <LoginPage />}
       </div>
     </div>
   );

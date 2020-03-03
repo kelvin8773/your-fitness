@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux';
 import MoreHomePage from './home';
 import EditUserPage from './editUser';
 
-const MorePage = ({ user }) => {
+const MorePage = () => {
   const { currentPage } = useSelector(state => state.status);
 
   const selectPage = current => {
     switch (current) {
       case 'edit user':
-        return <EditUserPage user={user} />;
+        return <EditUserPage />;
       default:
-        return <MoreHomePage user={user} />;
+        return <MoreHomePage />;
     }
   };
 
