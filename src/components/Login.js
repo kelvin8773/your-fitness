@@ -7,6 +7,7 @@ import {
   addUser,
 } from '../slices/usersSlice';
 import { sigIn, setCurrentUser } from '../slices/statusSlice';
+import { fetchActivities, updateActivities } from '../slices/activitiesSlice';
 
 const LoginPage = () => {
   const [inputName, setInputName] = useState('');
@@ -21,6 +22,8 @@ const LoginPage = () => {
 
       if (idx !== -1) {
         dispatch(setCurrentUser(users[idx]));
+        fetchActivities(users[idx].id)
+          .then(response => dispatch(updateActivities(response)));
       } else {
         createUser({ name: inputName })
           .then(response => {
@@ -29,7 +32,9 @@ const LoginPage = () => {
               dispatch(setCurrentUser(response));
             }
           });
-      }
+      };
+
+
       dispatch(sigIn());
       setInputName('');
     } else {

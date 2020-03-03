@@ -1,39 +1,54 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { makeActivityID, formatDate } from '../helpers/index';
+
+import api from '../helpers/api';
 
 export const slice = createSlice({
   name: 'activities',
-  initialState: [
-    {
-      id: makeActivityID(),
-      date: formatDate(new Date('2020-02-25')),
-      kind: 'cycling',
-      amount: 45,
-    },
-    {
-      id: makeActivityID(),
-      date: formatDate(new Date('2020-02-23')),
-      kind: 'walking',
-      amount: 2350,
-    },
-  ],
+  initialState: [],
   reducers: {
-    createActivity: (state, action) => {
-      state.unshift(action.payload);
+    updateActivities: (state, action) => {
+      const { payload } = action;
+      return payload;
     },
 
-    updateActivity: (state, action) => {
-      const { id, kind, amount } = action.payload;
-      const actToUpdate = state.find(activity => activity.id === id);
-
-      if (actToUpdate) {
-        actToUpdate.kind = kind;
-        actToUpdate.amount = amount;
-      }
-    },
   },
 });
 
+export async function fetchActivities(userID) {
+  try {
+    const { status, data } = await api.get(`/users/${userID}/activities`);
+    if (status === 200) return data;
+  } catch (err) {
+    alert(err);
+  }
+};
 
-export const { createActivity, updateActivity } = slice.actions;
+export async function fetchActivity(userID, id) {
+  try {
+    const { status, data } = await api.get(`/users/${userID}/activities/${id}`);
+    if (status === 200) return data;
+  } catch (err) {
+    alert(err);
+  }
+};
+
+export async function createActivity(activity) {
+  try {
+    const { status } = await api.post(`/users/${activity.user_id}/activities`, activity);
+    if (status === 201) return true;
+  } catch (err) {
+    alert(err);
+  }
+};
+
+export async function updateActivity(activity) {
+  try {
+    const { status } = await api.put(`/users/${activity.user_id}/activities/${activity.id}`, activity);
+    if (status === 204) return true;
+  } catch (err) {
+    alert(err);
+  }
+}
+
+export const { updateActivities } = slice.actions;
 export default slice.reducer;

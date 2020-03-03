@@ -40,3 +40,11 @@ export const formatDate = (timestamp, format = 'S') => {
 
   return `${mm} ${dd} ${yyyy}`;
 };
+
+export const formatTime = (timestamp) => {
+  const x = new Date(timestamp);
+  const hh = x.getHours();
+  const mm = x.getMinutes();
+  const ss = x.getSeconds();
+  return `${hh}:${mm}:${ss}`;
+}
