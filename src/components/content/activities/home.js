@@ -6,9 +6,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import {
   ACTIVITY_UNITS,
   ACTIVITY_ICONS,
-} from '../../helpers/constant';
+} from '../../../helpers/constant';
 
-const ActivitiesPage = () => {
+const ActivitiesHomePage = () => {
   const { activities } = useSelector(state => state);
 
   const goals = useSelector(state => state.status.goals);
@@ -79,4 +79,4 @@ const ActivitiesPage = () => {
   );
 };
 
-export default ActivitiesPage;
+export default ActivitiesHomePage;

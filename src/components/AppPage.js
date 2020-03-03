@@ -14,7 +14,7 @@ import AddDataPage from './content/add_data/index';
 import MorePage from './content/more/index';
 
 import ProgressPage from './content/ProgressPage';
-import ActivitiesPage from './content/activitiesPage';
+import ActivitiesPage from './content/activities/index';
 
 const AppPage = ({ user }) => (
   <div className="App-page">
