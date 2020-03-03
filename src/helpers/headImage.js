@@ -20,6 +20,6 @@ const getHeadImage = (name, sex) => {
       }
   }
   return url;
-}
+};
 
 export default getHeadImage;
