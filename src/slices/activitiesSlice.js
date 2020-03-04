@@ -21,6 +21,7 @@ export async function fetchActivities(userID) {
   } catch (err) {
     alert(err);
   }
+  return false;
 }
 
 export async function fetchActivity(userID, id) {
@@ -30,6 +31,7 @@ export async function fetchActivity(userID, id) {
   } catch (err) {
     alert(err);
   }
+  return false;
 }
 
 export async function createActivity(activity) {
@@ -39,6 +41,7 @@ export async function createActivity(activity) {
   } catch (err) {
     alert(err);
   }
+  return false;
 }
 
 export async function updateActivity(activity) {
@@ -48,6 +51,7 @@ export async function updateActivity(activity) {
   } catch (err) {
     alert(err);
   }
+  return false;
 }
 
 export async function deleteActivity(activity) {
@@ -57,6 +61,7 @@ export async function deleteActivity(activity) {
   } catch (err) {
     alert(err);
   }
+  return false;
 }
 
 export const { updateActivities } = slice.actions;
