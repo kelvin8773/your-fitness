@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {
@@ -7,62 +7,33 @@ import {
   ACTIVITY_ICONS,
 } from '../../../helpers/constant';
 import { formatDate, formatTime } from '../../../helpers/index';
+import { setCurrentPage, setCurrentActivity } from '../../../slices/statusSlice';
+import { getFinish, getDateTitle, getColor } from '../../../helpers/activity';
 
 const ActivitiesHomePage = () => {
+  const dispatch = useDispatch();
   const { activities } = useSelector(state => state);
   const { goals } = useSelector(state => state.status);
-  const reverseActivities = [...activities].reverse();
-
-  const calDailyGoal = activity => {
-    const findGoal = goals.find(goal => goal.kind === activity.kind);
-    return Math.floor((activity.amount / findGoal.amount) * 100);
-  };
-
-  const getDateTitle = (date) => {
-    const timeDiff = new Date() - new Date(date);
-
-    const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
-
-    switch (daysDiff) {
-      case 0:
-        return 'Today';
-      case 1:
-        return 'Yesterday';
-      case 2:
-        return "Two days ago";
-      default:
-        return "Few days ago";
-    }
-  };
-
-  const getColor = (finish) => {
-    if (finish >= 100) {
-      return '#97e492';
-    } else if (finish >= 60) {
-      return '#42b5e8';
-    } else {
-      return '#e846a7';
-    }
-  };
+  const reverseActivities = [...activities].reverse().slice(0, 5);
 
   let dateTitle;
   let lastTitle;
 
-
   return (
-    <div className="records-page">
+    <div className="activities-page">
       {
         reverseActivities.map(activity => {
-          const dailyGoal = calDailyGoal(activity);
-          const circleColor = getColor(dailyGoal);
+          const goal = goals.find(g => g.kind === activity.kind);
+          const finishing = getFinish(goal.amount, activity.amount);
+          const circleColor = getColor(finishing);
 
-          const { id, kind, amount, updated_at } = activity;
-          const activityDate = formatDate(updated_at);
-          const activityTime = formatTime(updated_at);
+          const { id, kind, amount, created_at } = activity;
+          const activityDate = formatDate(created_at);
+          const activityTime = formatTime(created_at);
 
-          const tempTitle = getDateTitle(updated_at);
-          dateTitle = (lastTitle === tempTitle || lastTitle === 'Few days ago')
-            ? null : tempTitle;
+          const temp = getDateTitle(created_at);
+          dateTitle = (lastTitle === temp || lastTitle === 'Few days ago')
+            ? null : temp;
           if (dateTitle) lastTitle = dateTitle;
 
           return (
@@ -76,8 +47,8 @@ const ActivitiesHomePage = () => {
                 <div className="daily-goal">
                   <div className="goal-progress">
                     <CircularProgressbar
-                      value={dailyGoal}
-                      text={`${dailyGoal}%`}
+                      value={finishing}
+                      text={`${finishing}%`}
                       strokeWidth={7}
                       styles={buildStyles({
                         strokeLinecap: 'round',
@@ -106,12 +77,23 @@ const ActivitiesHomePage = () => {
                   </div>
                 </div>
 
-                <i className="fas fa-chevron-right fa-2x right-btn" />
+                <button
+                  type="button"
+                  className="right-btn"
+                  onClick={() => {
+                    dispatch(setCurrentActivity(activity));
+                    dispatch(setCurrentPage('edit activity'));
+                  }}
+                >
+                  <i className="fas fa-chevron-right fa-2x" />
+                </button>
+
               </div>
             </div>
           );
         })
       }
+      {activities.length > 5 ? (<div className="more-sign"> More ... </div>) : ''}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [inputName, setInputName] = useState('');
   const dispatch = useDispatch();
   const users = useSelector(state => state.users);
-  const ready = users.length > 1;
+  const ready = users.length > 0;
 
   const handleLogin = e => {
     e.preventDefault();
@@ -85,12 +85,16 @@ const LoginPage = () => {
           now.
         </div>
 
-        <button
-          type="button"
-          onClick={() => checkServerStatus()}
-        >
-          Connect
-        </button>
+        {
+          ready ?
+            ''
+            :
+            (<button type="button" onClick={() => checkServerStatus()}>
+              Connect
+            </button>)
+        }
+
+
 
       </div>
 

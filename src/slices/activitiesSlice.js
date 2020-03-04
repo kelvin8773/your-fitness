@@ -50,5 +50,14 @@ export async function updateActivity(activity) {
   }
 }
 
+export async function deleteActivity(activity) {
+  try {
+    const { status } = await api.delete(`/users/${activity.user_id}/activities/${activity.id}`, activity);
+    if (status === 204) return true;
+  } catch (err) {
+    alert(err);
+  }
+}
+
 export const { updateActivities } = slice.actions;
 export default slice.reducer;

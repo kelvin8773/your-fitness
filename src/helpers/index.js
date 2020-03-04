@@ -45,6 +45,5 @@ export const formatTime = (timestamp) => {
   const x = new Date(timestamp);
   const hh = x.getHours();
   const mm = x.getMinutes();
-  const ss = x.getSeconds();
-  return `${hh}:${mm}:${ss}`;
+  return `${hh}:${mm}`;
 }
