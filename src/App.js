@@ -16,7 +16,7 @@ function App() {
       .then(response => dispatch(updateUsers(response)));
   };
 
-  useEffect(() => { getDataFromServer(); }, []);
+  useEffect(() => { getDataFromServer(); });
 
   return (
     <div className="App">
