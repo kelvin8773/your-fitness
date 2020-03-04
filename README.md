@@ -23,6 +23,15 @@
 
 ### ✨ [BackEnd Document](https://github.com/kelvin8773/your-fitness-api)
 
+## Project Detail
+
+### Tech Stack
+* React (Hook)
+* Redux (Redux Tool Kit)
+
+## Project Related Resources
+* [Fontawesome](https://fontawesome.com/start)
+* [UI Design](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI)
 
 ## Install
 
