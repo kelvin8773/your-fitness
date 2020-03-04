@@ -101,6 +101,16 @@ const LoginPage = () => {
 
       <div className="demo-note">
         Try to input ~ Kelvin ~ or ~ Gregoire ~ to see demo Data.
+        <p>
+          <a href="https://github.com/kelvin8773/your-fitness">
+            <i class="fab fa-github-alt fa-2x"></i>
+          </a>
+          <a href="https://twitter.com/Kelvin9877">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+
+        </p>
+
       </div>
     </div>
   );

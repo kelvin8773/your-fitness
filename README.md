@@ -13,9 +13,11 @@
   </a>
 </p>
 
-[![system-diagram](./docs/your-fitness-system.jpeg)](https://youfit.netlify.com)
-[![UI-User](./docs/your-fitness-ui-1.jpeg)](https://youfit.netlify.com)
-[![UI-Activity](./docs/your-fitness-ui-2.jpeg)](https://youfit.netlify.com)
+[![system-diagram](./docs/your-fitness-docs.002.jpeg)](https://youfit.netlify.com)
+[![UI-User](./docs/your-fitness-docs.003.jpeg)](https://youfit.netlify.com)
+[![UI-Activity](./docs/your-fitness-docs.004.jpeg)](https://youfit.netlify.com)
+[![Data-Diagram](./docs/your-fitness-docs.005.jpeg)](https://youfit.netlify.com)
+[![API-Examples](./docs/your-fitness-docs.006.jpeg)](https://youfit.netlify.com)
 
 > A Full stack project that include Frontend (React/Redux JS) and Backend (Ruby On Rails).
 
