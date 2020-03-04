@@ -1,41 +1,68 @@
+/* eslint no-alert: "warn" */
 import { createSlice } from '@reduxjs/toolkit';
-import { makeActivityID, formatDate } from '../helpers/index';
+import api from '../helpers/api';
+import { showMessage } from '../helpers/index';
 
 export const slice = createSlice({
   name: 'activities',
-  initialState: [
-    {
-      id: makeActivityID(),
-      date: formatDate(new Date('2020-02-25')),
-      type: 'cycling',
-      amount: 45,
-    },
-    {
-      id: makeActivityID(),
-      date: formatDate(new Date('2020-02-23')),
-      type: 'running',
-      amount: 5,
-    },
-
-
-  ],
+  initialState: [],
   reducers: {
-    createActivity: (state, action) => {
-      state.unshift(action.payload);
-    },
-
-    actUpdate: (state, action) => {
-      const { id, type, amount } = action.payload;
-      const actToUpdate = state.find(activity => activity.id === id);
-
-      if (actToUpdate) {
-        actToUpdate.type = type;
-        actToUpdate.amount = amount;
-      }
+    updateActivities: (state, action) => {
+      const { payload } = action;
+      return payload;
     },
   },
 });
 
+export async function fetchActivities(userID) {
+  try {
+    const { status, data } = await api.get(`/users/${userID}/activities`);
+    if (status === 200) return data;
+  } catch (err) {
+    showMessage(err);
+  }
+  return false;
+}
 
-export const { createActivity, actUpdate } = slice.actions;
+export async function fetchActivity(userID, id) {
+  try {
+    const { status, data } = await api.get(`/users/${userID}/activities/${id}`);
+    if (status === 200) return data;
+  } catch (err) {
+    showMessage(err);
+  }
+  return false;
+}
+
+export async function createActivity(activity) {
+  try {
+    const { status } = await api.post(`/users/${activity.user_id}/activities`, activity);
+    if (status === 201) return true;
+  } catch (err) {
+    showMessage(err);
+  }
+  return false;
+}
+
+export async function updateActivity(activity) {
+  try {
+    const { status } = await api.put(`/users/${activity.user_id}/activities/${activity.id}`, activity);
+    if (status === 204) return true;
+  } catch (err) {
+    showMessage(err);
+  }
+  return false;
+}
+
+export async function deleteActivity(activity) {
+  try {
+    const { status } = await api.delete(`/users/${activity.user_id}/activities/${activity.id}`, activity);
+    if (status === 204) return true;
+  } catch (err) {
+    showMessage(err);
+  }
+  return false;
+}
+
+export const { updateActivities } = slice.actions;
 export default slice.reducer;

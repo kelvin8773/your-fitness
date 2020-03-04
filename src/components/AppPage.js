@@ -10,10 +10,11 @@ import Header from './top/Header';
 import Navbar from './bottom/Navbar';
 
 import HomePage from './content/HomePage';
-import AddDataPage from './content/AddDataPage';
+import AddDataPage from './content/add_data/index';
+import MorePage from './content/more/index';
+
 import ProgressPage from './content/ProgressPage';
-import ActivitiesPage from './content/activitiesPage';
-import MorePage from './content/MorePage';
+import ActivitiesPage from './content/activities/index';
 
 const AppPage = () => (
   <div className="App-page">

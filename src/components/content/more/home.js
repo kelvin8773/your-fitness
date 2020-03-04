@@ -1,35 +1,30 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sigOut } from '../../slices/statusSlice';
+import { sigOut, setCurrentPage, setCurrentUser } from '../../../slices/statusSlice';
+import getHeadImage from '../../../helpers/headImage';
 
-const MorePage = () => {
+const MoreHomePage = () => {
   const dispatch = useDispatch();
-  const { name } = useSelector(state => state.user);
-  let namePlaceHolder;
-  let sexPlaceHolder;
-  let headImagePlaceHolder;
+  const { currentUser } = useSelector(state => state.status);
+  const namePlaceHolder = currentUser.name ? currentUser.name : 'Jonh Done';
+  const sexPlaceHolder = currentUser.sex ? currentUser.sex : 'Secret';
+  const headImage = getHeadImage(namePlaceHolder, sexPlaceHolder);
 
-  switch (name) {
-    case 'Guest':
-      headImagePlaceHolder = './assets/images/gregoire_vella.jpg';
-      namePlaceHolder = 'Gregoire Vella';
-      sexPlaceHolder = 'Male';
-      break;
-    case 'Kelvin':
-      headImagePlaceHolder = './assets/images/kelvin.jpg';
-      namePlaceHolder = 'Kelvin Liang';
-      sexPlaceHolder = 'Male';
-      break;
-    default:
-      headImagePlaceHolder = './assets/images/female.jpg';
-      namePlaceHolder = 'Ella Zhang';
-      sexPlaceHolder = 'Female';
-  }
+  const handleSignOut = () => {
+    dispatch(setCurrentUser({}));
+    dispatch(sigOut());
+    dispatch(setCurrentPage('login'));
+  };
 
   return (
-    <div className="more-page">
+    <div className="more-page-home">
       <div className="profile-row">
-        <img src={headImagePlaceHolder} alt="userHead" />
+        <button
+          type="button"
+          onClick={() => dispatch(setCurrentPage('edit user'))}
+        >
+          <img src={headImage} alt="userHead" />
+        </button>
         <div>
           <div className="name">{namePlaceHolder}</div>
           <div className="sex">{sexPlaceHolder}</div>
@@ -56,7 +51,7 @@ const MorePage = () => {
         <i className="fas fa-info-circle fa-2x" />
         <p>Help</p>
       </button>
-      <button type="button" className="menu-row" onClick={() => dispatch(sigOut())}>
+      <button type="button" className="menu-row" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt fa-2x" />
         <p>Sign Out</p>
       </button>
@@ -66,4 +61,4 @@ const MorePage = () => {
 };
 
 
-export default MorePage;
+export default MoreHomePage;

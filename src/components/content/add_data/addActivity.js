@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { createActivity } from '../../../slices/activitiesSlice';
+import { createActivity, fetchActivities, updateActivities } from '../../../slices/activitiesSlice';
 import { setCurrentPage } from '../../../slices/statusSlice';
-import { makeActivityID, formatDate } from '../../../helpers/index';
+// import { makeActivityID, formatDate } from '../../../helpers/index';
 
 import {
   ACTIVITY_ICONS,
@@ -16,17 +16,25 @@ import {
 
 const AddActivity = ({ activity }) => {
   const dispatch = useDispatch();
+  const { currentUser } = useSelector(state => state.status);
   const [inputAmount, setInputAmount] = useState(0);
   const changeAmount = ACTIVITY_CHANGE_VALUES[activity];
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(createActivity({
-      id: makeActivityID(),
-      type: activity,
-      date: formatDate(Date.now()),
+
+    createActivity({
+      kind: activity,
       amount: inputAmount,
-    }));
+      user_id: currentUser.id,
+    }).then(response => {
+      if (response) {
+        fetchActivities(currentUser.id)
+          .then(response => {
+            dispatch(updateActivities(response));
+          });
+      }
+    });
 
     dispatch(setCurrentPage('Add Activities'));
   };
