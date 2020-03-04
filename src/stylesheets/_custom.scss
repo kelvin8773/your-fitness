@@ -91,6 +91,7 @@ body {
         }
 
         .server-status {
+          margin-bottom: 2rem;
 
           .status-message {
             font-style: italic;
@@ -115,6 +116,13 @@ body {
 
           }
 
+        }
+
+        .demo-note {
+          font-size: 0.7rem;
+          font-weight: 100;
+          color: $grey-4;
+          font-style: italic;
         }
 
       }
@@ -333,8 +341,6 @@ body {
           }
 
           .activities-page {
-
-
             .activity-record {
               display: flex;
               flex-flow: column;
@@ -408,6 +414,7 @@ body {
                   font-size: 0.9rem;
                   color: $white-1;
                   margin-right: 1rem;
+                  background-color: inherit;
 
                   &:hover {
                     cursor: pointer;
@@ -538,6 +545,7 @@ body {
                 button {
                   border: none;
                   outline: none;
+                  background-color: inherit;
 
                   img {
                     height: 50px;
@@ -600,87 +608,93 @@ body {
               font-size: 1rem;
               color: $secondary;
 
-              img {
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
-                border-radius: 50%;
-                -webkit-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
-                -moz-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
-                box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
-                margin-bottom: 0.8rem;
-              }
-
-              input[name="name"],
-              input[name="age"] {
-                width: 200px;
-                text-align: center;
-                font-size: 1.5rem;
-                font-weight: bold;
-                padding: 0.5rem;
-                border-radius: 5px;
-                color: inherit;
-                background-color: inherit;
-                transition: all 0.4s ease-in-out;
-                border: none;
-                outline: none;
-                margin-bottom: 0.5rem;
-
-                &:hover,
-                &:focus {
-                  background-color: white;
-                }
-              }
-
-              .input-sex {
+              form {
                 display: flex;
-                justify-content: space-around;
-                text-align: center;
-                margin-bottom: 2rem;
+                flex-flow: column;
+                align-items: center;
 
-                .radio-option {
-                  margin-top: 1rem;
-                  display: flex;
-                  flex-flow: column;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 6px;
+                img {
+                  width: 100px;
+                  height: 100px;
+                  object-fit: cover;
+                  border-radius: 50%;
+                  -webkit-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                  -moz-box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                  box-shadow: 0px 0px 15px 0px rgba(87, 126, 103, 0.75);
+                  margin-bottom: 0.8rem;
+                }
+
+                input[name="name"],
+                input[name="age"] {
+                  width: 200px;
+                  text-align: center;
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  padding: 0.5rem;
+                  border-radius: 5px;
+                  color: inherit;
+                  background-color: inherit;
                   transition: all 0.4s ease-in-out;
-                  width: 110px;
-                  height: 110px;
+                  border: none;
+                  outline: none;
+                  margin-bottom: 0.5rem;
 
-                  i {
-                    font-size: 2.5rem;
-                    margin-bottom: 0.6rem;
-                  }
-
-                  input {
-                    margin-bottom: 0.7rem;
-                    border: none;
-                    outline: none;
-                  }
-
-                  label {
-                    font-size: 0.8rem;
-                    font-style: italic;
-                    font-weight: 100;
-                  }
-
-                  &:hover {
-                    cursor: pointer;
+                  &:hover,
+                  &:focus {
                     background-color: white;
                   }
                 }
-              }
 
-              button {
-                background-color: $primary;
-                font-size: inherit;
-                font-weight: 500;
-                padding: 0.7rem 4rem;
+                .input-sex {
+                  display: flex;
+                  justify-content: space-around;
+                  text-align: center;
+                  margin-bottom: 2rem;
 
-                &:hover {
-                  background-color: $blue-2;
+                  .radio-option {
+                    margin-top: 1rem;
+                    display: flex;
+                    flex-flow: column;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 6px;
+                    transition: all 0.4s ease-in-out;
+                    width: 110px;
+                    height: 110px;
+
+                    i {
+                      font-size: 2.5rem;
+                      margin-bottom: 0.6rem;
+                    }
+
+                    input {
+                      margin-bottom: 0.7rem;
+                      border: none;
+                      outline: none;
+                    }
+
+                    label {
+                      font-size: 0.8rem;
+                      font-style: italic;
+                      font-weight: 100;
+                    }
+
+                    &:hover {
+                      cursor: pointer;
+                      background-color: white;
+                    }
+                  }
+                }
+
+                button {
+                  background-color: $primary;
+                  font-size: inherit;
+                  font-weight: 500;
+                  padding: 0.7rem 4rem;
+
+                  &:hover {
+                    background-color: $blue-2;
+                  }
                 }
               }
 

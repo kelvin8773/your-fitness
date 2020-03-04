@@ -1,5 +1,5 @@
-<h1 align="center">Welcome to Your Fitness App 👋</h1>
-<p>
+<h1 align="center">🏅 Your Fitness App 🏅</h1>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/kelvin8773/your-fitness/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
@@ -7,13 +7,31 @@
   <a href="https://twitter.com/kelvin9877" target="_blank">
     <img alt="Twitter: kelvin9877" src="https://img.shields.io/twitter/follow/kelvin9877.svg?style=social" />
   </a>
+
+  <a href="https://youfit.netlify.com/" target="_blank">
+    <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/998c89fb-520a-46b5-938b-a113302e0a54/deploy-status" />
+  </a>
 </p>
 
-> A Frontend project utilize React & Redux to build daily fitness data tracking app.
+[![system-diagram](./docs/your-fitness-system.jpeg)](https://youfit.netlify.com)
+[![UI-User](./docs/your-fitness-ui-1.jpeg)](https://youfit.netlify.com)
+[![UI-Activity](./docs/your-fitness-ui-2.jpeg)](https://youfit.netlify.com)
 
-### 🏠 [Homepage](youfit.netlify.com)
+> A Full stack project that include Frontend (React/Redux JS) and Backend (Ruby On Rails).
 
-### ✨ [Demo](youfit.netlify.com)
+### ✨ [FrontEnd Demo](https://youfit.netlify.com)
+
+### ✨ [BackEnd Document](https://github.com/kelvin8773/your-fitness-api)
+
+## Project Detail
+
+### Tech Stack
+* React (Hook)
+* Redux (Redux Tool Kit)
+
+## Project Related Resources
+* [Fontawesome](https://fontawesome.com/start)
+* [UI Design](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI)
 
 ## Install
 
