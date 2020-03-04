@@ -544,7 +544,25 @@ body {
           }
 
           .progress-page {
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
+            color: $white-4;
+
+            h3 {
+              font-size: 2rem;
+              line-height: 3rem;
+              margin-bottom: 2rem;
+            }
+
+            i {
+              font-size: 6rem;
+              // color: $secondary;
+            }
+
           }
 
           .more-page {
