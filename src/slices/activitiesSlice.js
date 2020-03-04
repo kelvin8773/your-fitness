@@ -1,6 +1,7 @@
 /* eslint no-alert: "warn" */
 import { createSlice } from '@reduxjs/toolkit';
 import api from '../helpers/api';
+import { showMessage } from '../helpers/index';
 
 export const slice = createSlice({
   name: 'activities',
@@ -10,7 +11,6 @@ export const slice = createSlice({
       const { payload } = action;
       return payload;
     },
-
   },
 });
 
@@ -19,7 +19,7 @@ export async function fetchActivities(userID) {
     const { status, data } = await api.get(`/users/${userID}/activities`);
     if (status === 200) return data;
   } catch (err) {
-    alert(err);
+    showMessage(err);
   }
   return false;
 }
@@ -29,7 +29,7 @@ export async function fetchActivity(userID, id) {
     const { status, data } = await api.get(`/users/${userID}/activities/${id}`);
     if (status === 200) return data;
   } catch (err) {
-    alert(err);
+    showMessage(err);
   }
   return false;
 }
@@ -39,7 +39,7 @@ export async function createActivity(activity) {
     const { status } = await api.post(`/users/${activity.user_id}/activities`, activity);
     if (status === 201) return true;
   } catch (err) {
-    alert(err);
+    showMessage(err);
   }
   return false;
 }
@@ -49,7 +49,7 @@ export async function updateActivity(activity) {
     const { status } = await api.put(`/users/${activity.user_id}/activities/${activity.id}`, activity);
     if (status === 204) return true;
   } catch (err) {
-    alert(err);
+    showMessage(err);
   }
   return false;
 }
@@ -59,7 +59,7 @@ export async function deleteActivity(activity) {
     const { status } = await api.delete(`/users/${activity.user_id}/activities/${activity.id}`, activity);
     if (status === 204) return true;
   } catch (err) {
-    alert(err);
+    showMessage(err);
   }
   return false;
 }

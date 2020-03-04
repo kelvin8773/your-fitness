@@ -8,6 +8,7 @@ import {
 } from '../slices/usersSlice';
 import { sigIn, setCurrentUser } from '../slices/statusSlice';
 import { fetchActivities, updateActivities } from '../slices/activitiesSlice';
+import { showMessage } from '../helpers/index';
 
 const LoginPage = () => {
   const [inputName, setInputName] = useState('');
@@ -38,8 +39,8 @@ const LoginPage = () => {
       dispatch(sigIn());
       setInputName('');
     } else {
-      if (inputName.length === 0) alert('Please enter your name!');
-      if (!ready) alert('Please make sure the server is online first!');
+      if (inputName.length === 0) showMessage('Please enter your name!');
+      if (!ready) showMessage('Please make sure the server is online first!');
     }
   };
 
@@ -90,7 +91,7 @@ const LoginPage = () => {
             ? ''
             : (
               <button type="button" onClick={() => checkServerStatus()}>
-              Connect
+                Connect
               </button>
             )
         }

@@ -47,3 +47,5 @@ export const formatTime = timestamp => {
   const mm = x.getMinutes();
   return `${hh}:${mm}`;
 };
+
+export const showMessage = msg => msg + 1;
