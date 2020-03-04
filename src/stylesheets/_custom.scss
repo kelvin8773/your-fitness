@@ -91,6 +91,7 @@ body {
         }
 
         .server-status {
+          margin-bottom: 2rem;
 
           .status-message {
             font-style: italic;
@@ -115,6 +116,13 @@ body {
 
           }
 
+        }
+
+        .demo-note {
+          font-size: 0.7rem;
+          font-weight: 100;
+          color: $grey-4;
+          font-style: italic;
         }
 
       }
