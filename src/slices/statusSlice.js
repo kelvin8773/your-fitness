@@ -1,3 +1,4 @@
+/* eslint no-param-reassign: "error" */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const slice = createSlice({

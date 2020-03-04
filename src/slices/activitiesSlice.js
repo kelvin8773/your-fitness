@@ -1,5 +1,5 @@
+/* eslint no-alert: "warn" */
 import { createSlice } from '@reduxjs/toolkit';
-
 import api from '../helpers/api';
 
 export const slice = createSlice({

@@ -28,12 +28,13 @@ const ActivitiesHomePage = () => {
           const circleColor = getColor(finishing);
 
           const {
-            id, kind, amount, created_at,
+            id, kind, amount,
           } = activity;
-          const activityDate = formatDate(created_at);
-          const activityTime = formatTime(created_at);
+          const createdTime = activity.created_at;
+          const activityDate = formatDate(createdTime);
+          const activityTime = formatTime(createdTime);
 
-          const temp = getDateTitle(created_at);
+          const temp = getDateTitle(createdTime);
           dateTitle = (lastTitle === temp || lastTitle === 'Few days ago')
             ? null : temp;
           if (dateTitle) lastTitle = dateTitle;

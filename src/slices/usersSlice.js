@@ -30,6 +30,7 @@ export async function fetchUsers() {
   } catch (err) {
     window.alert(err);
   }
+  return false;
 }
 
 export async function fetchUser(uid) {
@@ -39,6 +40,7 @@ export async function fetchUser(uid) {
   } catch (err) {
     window.alert(err);
   }
+  return false;
 }
 
 export async function createUser(user) {
@@ -48,6 +50,7 @@ export async function createUser(user) {
   } catch (err) {
     window.alert(err);
   }
+  return false;
 }
 
 export async function pushUser(user) {
@@ -57,6 +60,7 @@ export async function pushUser(user) {
   } catch (err) {
     window.alert(err);
   }
+  return false;
 }
 
 export const {
