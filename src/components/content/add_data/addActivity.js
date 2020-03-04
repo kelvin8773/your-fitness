@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { createActivity, fetchActivities, updateActivities } from '../../../slices/activitiesSlice';
-import { setCurrentPage, } from '../../../slices/statusSlice';
+import { setCurrentPage } from '../../../slices/statusSlice';
 // import { makeActivityID, formatDate } from '../../../helpers/index';
 
 import {
@@ -26,13 +26,13 @@ const AddActivity = ({ activity }) => {
     createActivity({
       kind: activity,
       amount: inputAmount,
-      user_id: currentUser.id
+      user_id: currentUser.id,
     }).then(response => {
       if (response) {
         fetchActivities(currentUser.id)
           .then(response => {
             dispatch(updateActivities(response));
-          })
+          });
       }
     });
 

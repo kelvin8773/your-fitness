@@ -21,7 +21,7 @@ export async function fetchActivities(userID) {
   } catch (err) {
     alert(err);
   }
-};
+}
 
 export async function fetchActivity(userID, id) {
   try {
@@ -30,7 +30,7 @@ export async function fetchActivity(userID, id) {
   } catch (err) {
     alert(err);
   }
-};
+}
 
 export async function createActivity(activity) {
   try {
@@ -39,7 +39,7 @@ export async function createActivity(activity) {
   } catch (err) {
     alert(err);
   }
-};
+}
 
 export async function updateActivity(activity) {
   try {

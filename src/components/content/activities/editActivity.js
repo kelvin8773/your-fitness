@@ -30,7 +30,7 @@ const EditActivity = () => {
   const activityDate = formatDate(currentActivity.updated_at, 'L');
   const activityTime = formatTime(currentActivity.updated_at);
 
-  const handleChange = (activity) => {
+  const handleChange = activity => {
     const updatedActivity = { ...activity, amount: inputAmount };
     updateActivity(updatedActivity)
       .then(response => {
@@ -44,7 +44,7 @@ const EditActivity = () => {
       });
   };
 
-  const handleDelete = (activity) => {
+  const handleDelete = activity => {
     deleteActivity(activity)
       .then(response => {
         if (response) {
@@ -70,7 +70,8 @@ const EditActivity = () => {
         {ACTIVITY_ICONS(currentActivity.kind)}
       </div>
 
-      <div className="activity-progress"
+      <div
+        className="activity-progress"
         style={{ width: '45%' }}
       >
         <CircularProgressbar
@@ -86,12 +87,14 @@ const EditActivity = () => {
         />
       </div>
 
-      <form className="edit-activity-form"
+      <form
+        className="edit-activity-form"
         action="submit"
         onSubmit={e => {
           e.preventDefault();
           handleChange(currentActivity);
-        }}>
+        }}
+      >
         <div className="input-area">
           <button
             type="button"
@@ -119,7 +122,8 @@ const EditActivity = () => {
         <button type="submit" className="btn"> Save</button>
       </form>
 
-      <button className="delete-btn"
+      <button
+        className="delete-btn"
         type="button"
         onClick={() => handleDelete(currentActivity)}
       >
@@ -127,7 +131,7 @@ const EditActivity = () => {
       </button>
 
     </div>
-  )
-}
+  );
+};
 
 export default EditActivity;

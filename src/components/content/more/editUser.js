@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, pushUser, } from '../../../slices/usersSlice';
+import { updateUser, pushUser } from '../../../slices/usersSlice';
 import { setCurrentPage, setCurrentUser } from '../../../slices/statusSlice';
 import getHeadImage from '../../../helpers/headImage';
 
 
 const EditUserPage = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector(state => state.status)
+  const { currentUser } = useSelector(state => state.status);
   const [name, setName] = useState(currentUser.name);
   const [age, setAge] = useState(currentUser.age ? currentUser.age : 0);
   const [sex, setSex] = useState(currentUser.sex ? currentUser.sex : '');
@@ -16,8 +16,9 @@ const EditUserPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const updatedUser = {
-      ...currentUser, name, sex, age: parseInt(age)
+      ...currentUser, name, sex, age,
     };
+
     pushUser(updatedUser)
       .then(response => {
         if (response) {
@@ -45,7 +46,7 @@ const EditUserPage = () => {
           name="age"
           value={age}
           min="18"
-          onChange={e => setAge(e.target.value)}
+          onChange={e => setAge(parseInt(e.target.value, 10))}
           className="input-age"
         />
 
@@ -60,7 +61,7 @@ const EditUserPage = () => {
               onChange={e => setSex(e.target.value)}
               checked={sex === 'male'}
             />
-            <label htmlFor="sex">Male</label>
+            <div htmlFor="sex">Male</div>
           </div>
 
           <div className="radio-option">
@@ -74,7 +75,7 @@ const EditUserPage = () => {
               checked={sex === 'female'}
 
             />
-            <label htmlFor="sex">Female</label>
+            <div htmlFor="sex">Female</div>
           </div>
 
           <div className="radio-option">
@@ -87,7 +88,7 @@ const EditUserPage = () => {
               onChange={e => setSex(e.target.value)}
               checked={sex === ''}
             />
-            <label htmlFor="sex">Secret</label>
+            <div htmlFor="sex">Secret</div>
           </div>
         </div>
 

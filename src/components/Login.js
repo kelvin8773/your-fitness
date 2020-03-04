@@ -32,7 +32,7 @@ const LoginPage = () => {
               dispatch(setCurrentUser(response));
             }
           });
-      };
+      }
 
 
       dispatch(sigIn());
@@ -86,14 +86,14 @@ const LoginPage = () => {
         </div>
 
         {
-          ready ?
-            ''
-            :
-            (<button type="button" onClick={() => checkServerStatus()}>
+          ready
+            ? ''
+            : (
+              <button type="button" onClick={() => checkServerStatus()}>
               Connect
-            </button>)
+              </button>
+            )
         }
-
 
 
       </div>

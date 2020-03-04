@@ -27,7 +27,9 @@ const ActivitiesHomePage = () => {
           const finishing = getFinish(goal.amount, activity.amount);
           const circleColor = getColor(finishing);
 
-          const { id, kind, amount, created_at } = activity;
+          const {
+            id, kind, amount, created_at,
+          } = activity;
           const activityDate = formatDate(created_at);
           const activityTime = formatTime(created_at);
 
@@ -38,11 +40,12 @@ const ActivitiesHomePage = () => {
 
           return (
             <div key={id + kind} className="activity-record">
-              {dateTitle ?
-                (<div className="activity-date-title">
-                  {dateTitle}
-                </div>) : ''
-              }
+              {dateTitle
+                ? (
+                  <div className="activity-date-title">
+                    {dateTitle}
+                  </div>
+                ) : ''}
               <div className="activity-data">
                 <div className="daily-goal">
                   <div className="goal-progress">

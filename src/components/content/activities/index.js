@@ -18,7 +18,7 @@ const ActivitiesPage = () => {
   const page = selectPage(currentPage);
 
   return (
-    <div >
+    <div>
       {page}
     </div>
   );

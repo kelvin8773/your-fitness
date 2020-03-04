@@ -5,7 +5,7 @@ import getHeadImage from '../../../helpers/headImage';
 
 const MoreHomePage = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector(state => state.status)
+  const { currentUser } = useSelector(state => state.status);
   const namePlaceHolder = currentUser.name ? currentUser.name : 'Jonh Done';
   const sexPlaceHolder = currentUser.sex ? currentUser.sex : 'Secret';
   const headImage = getHeadImage(namePlaceHolder, sexPlaceHolder);
@@ -14,7 +14,7 @@ const MoreHomePage = () => {
     dispatch(setCurrentUser({}));
     dispatch(sigOut());
     dispatch(setCurrentPage('login'));
-  }
+  };
 
   return (
     <div className="more-page-home">
