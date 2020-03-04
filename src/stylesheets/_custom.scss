@@ -332,7 +332,8 @@ body {
             }
           }
 
-          .records-page {
+          .activities-page {
+
 
             .activity-record {
               display: flex;
@@ -352,6 +353,7 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                border-bottom: 0.5px solid $white-4;
 
                 .daily-goal {
                   margin-left: 1.5rem;
@@ -364,8 +366,15 @@ body {
                   }
 
                   .date {
-                    font-size: 0.9rem;
-                    font-weight: 600;
+                    font-size: 0.7rem;
+                    font-weight: 100;
+                    font-style: italic;
+
+                    p {
+                      font-size: 0.8rem;
+                      font-weight: 600;
+                      margin-bottom: 0.3rem;
+                    }
                   }
                 }
 
@@ -385,7 +394,7 @@ body {
                     font-weight: 500;
 
                     span {
-                      margin-left: 0.2rem;
+                      margin-left: 0.3rem;
                       font-weight: 200;
                       font-size: 0.7rem;
                     }
@@ -394,7 +403,9 @@ body {
                 }
 
                 .right-btn {
-                  font-size: 1.1rem;
+                  border: none;
+                  outline: none;
+                  font-size: 0.9rem;
                   color: $white-1;
                   margin-right: 1rem;
 
@@ -408,6 +419,107 @@ body {
 
             }
 
+            .more-sign {
+              margin-top: 1.5rem;
+              font-style: italic;
+            }
+
+          }
+
+          .activity-page {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            padding: 2rem;
+
+            .activity-title {
+              margin-bottom: 1rem;
+
+              h2 {
+                margin-bottom: 0.5rem;
+              }
+
+              p {
+                font-size: 1rem;
+                font-style: italic;
+              }
+            }
+
+            .activity-logo {
+              font-size: 2rem;
+              color: $secondary;
+              margin-bottom: 1rem;
+            }
+
+            .activity-progress {
+              margin-bottom: 1rem;
+            }
+
+            .edit-activity-form {
+              margin-bottom: 2rem;
+
+              .input-area {
+                display: flex;
+                align-items: flex-start;
+
+                button[type="button"] {
+                  font-size: 1.6rem;
+                  padding: 0.3rem 1rem;
+                  background-color: $primary;
+                  outline: none;
+
+                  &:hover {
+                    background-color: $success;
+                  }
+                }
+
+                input {
+                  text-align: center;
+                  font-size: 2rem;
+                  padding: 0.2rem;
+                  border-radius: 5px;
+                  width: 100px;
+                  margin: 0 1rem;
+                  background-color: inherit;
+                  color: $info;
+                  border: none;
+                  outline: none;
+                  margin-bottom: 1rem;
+
+                  &:hover {
+                    background-color: white;
+                    color: $secondary;
+                  }
+                }
+              }
+
+              button[type="submit"] {
+                background-color: $blue-2;
+                font-size: 1.3rem;
+                padding: 0.5rem 3rem;
+
+                &:hover {
+                  background-color: $secondary;
+                }
+              }
+
+            }
+
+            .delete-btn {
+              border: none;
+              outline: none;
+              background-color: inherit;
+              color: $danger;
+              font-size: 0.9rem;
+              font-style: italic;
+              font-weight: 200;
+
+              &:hover {
+                cursor: pointer;
+                font-weight: 600;
+              }
+
+            }
           }
 
           .progress-page {

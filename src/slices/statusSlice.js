@@ -1,10 +1,12 @@
+/* eslint no-param-reassign: "error" */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const slice = createSlice({
   name: 'status',
   initialState: {
     login: false,
-    currentUserID: null,
+    currentUser: {},
+    currentActivity: {},
     currentPage: 'You.Fit',
     goals: [
       {
@@ -40,9 +42,13 @@ export const slice = createSlice({
       const { payload } = action;
       state.currentPage = payload;
     },
-    setCurrentUserID: (state, action) => {
+    setCurrentUser: (state, action) => {
       const { payload } = action;
-      state.currentUserID = payload;
+      state.currentUser = payload;
+    },
+    setCurrentActivity: (state, action) => {
+      const { payload } = action;
+      state.currentActivity = payload;
     },
     setGoal: (state, action) => {
       const { kind, amount } = action.payload;
@@ -65,7 +71,8 @@ export const {
   sigIn,
   sigOut,
   setCurrentPage,
-  setCurrentUserID,
+  setCurrentUser,
+  setCurrentActivity,
   setGoal,
 } = slice.actions;
 

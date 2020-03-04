@@ -1,27 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import MoreHomePage from './home';
-import EditUserPage from './editUser';
+import ActivitiesHomePage from './home';
+import EditActivity from './editActivity';
 
-const MorePage = () => {
+const ActivitiesPage = () => {
   const { currentPage } = useSelector(state => state.status);
 
   const selectPage = current => {
     switch (current) {
-      case 'edit user':
-        return <EditUserPage />;
+      case 'edit activity':
+        return <EditActivity />;
       default:
-        return <MoreHomePage />;
+        return <ActivitiesHomePage />;
     }
   };
 
   const page = selectPage(currentPage);
 
   return (
-    <div className="more-page">
+    <div>
       {page}
     </div>
   );
 };
 
-export default MorePage;
+export default ActivitiesPage;

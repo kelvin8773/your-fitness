@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import api from '../helpers/api';
+import { showMessage } from '../helpers/index';
 
 export const slice = createSlice({
   name: 'users',
@@ -28,8 +29,9 @@ export async function fetchUsers() {
     const { status, data } = await api.get('/users');
     if (status === 200) return data;
   } catch (err) {
-    window.alert(err);
+    showMessage(err);
   }
+  return false;
 }
 
 export async function fetchUser(uid) {
@@ -37,8 +39,9 @@ export async function fetchUser(uid) {
     const { status, data } = await api.get(`/users/${uid}`);
     if (status === 200) return data;
   } catch (err) {
-    window.alert(err);
+    showMessage(err);
   }
+  return false;
 }
 
 export async function createUser(user) {
@@ -46,8 +49,9 @@ export async function createUser(user) {
     const { status, data } = await api.post('/users/', user);
     if (status === 201) return data;
   } catch (err) {
-    window.alert(err);
+    showMessage(err);
   }
+  return false;
 }
 
 export async function pushUser(user) {
@@ -55,8 +59,9 @@ export async function pushUser(user) {
     const { status } = await api.put(`/users/${user.id}`, user);
     if (status === 204) return true;
   } catch (err) {
-    window.alert(err);
+    showMessage(err);
   }
+  return false;
 }
 
 export const {

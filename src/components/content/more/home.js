@@ -1,13 +1,20 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { sigOut, setCurrentPage } from '../../../slices/statusSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { sigOut, setCurrentPage, setCurrentUser } from '../../../slices/statusSlice';
 import getHeadImage from '../../../helpers/headImage';
 
-const MoreHomePage = ({ user }) => {
+const MoreHomePage = () => {
   const dispatch = useDispatch();
-  const namePlaceHolder = user.name ? user.name : 'Jonh Done';
-  const sexPlaceHolder = user.sex ? user.sex : 'Secret';
+  const { currentUser } = useSelector(state => state.status);
+  const namePlaceHolder = currentUser.name ? currentUser.name : 'Jonh Done';
+  const sexPlaceHolder = currentUser.sex ? currentUser.sex : 'Secret';
   const headImage = getHeadImage(namePlaceHolder, sexPlaceHolder);
+
+  const handleSignOut = () => {
+    dispatch(setCurrentUser({}));
+    dispatch(sigOut());
+    dispatch(setCurrentPage('login'));
+  };
 
   return (
     <div className="more-page-home">
@@ -44,7 +51,7 @@ const MoreHomePage = ({ user }) => {
         <i className="fas fa-info-circle fa-2x" />
         <p>Help</p>
       </button>
-      <button type="button" className="menu-row" onClick={() => dispatch(sigOut())}>
+      <button type="button" className="menu-row" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt fa-2x" />
         <p>Sign Out</p>
       </button>
