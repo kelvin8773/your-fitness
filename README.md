@@ -14,8 +14,8 @@
 </p>
 
 [![system-diagram](./docs/your-fitness-system.jpeg)](https://youfit.netlify.com)
-[![UI-User](./docs/your-fitness-ui.001.jpeg)](https://youfit.netlify.com)
-[![UI-Activity](./docs/your-fitness-ui.002.jpeg)](https://youfit.netlify.com)
+[![UI-User](./docs/your-fitness-ui-1.jpeg)](https://youfit.netlify.com)
+[![UI-Activity](./docs/your-fitness-ui-2.jpeg)](https://youfit.netlify.com)
 
 > A Full stack project that include Frontend (React/Redux JS) and Backend (Ruby On Rails).
 
