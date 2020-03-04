@@ -103,10 +103,10 @@ const LoginPage = () => {
         Try to input ~ Gregoire ~ to see demo Data.
         <p>
           <a href="https://github.com/kelvin8773/your-fitness">
-            <i className="fab fa-github-alt fa-2x"></i>
+            <i className="fab fa-github-alt fa-2x" />
           </a>
           <a href="https://twitter.com/Kelvin9877">
-            <i className="fab fa-twitter fa-2x"></i>
+            <i className="fab fa-twitter fa-2x" />
           </a>
 
         </p>
