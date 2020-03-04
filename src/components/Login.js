@@ -100,7 +100,7 @@ const LoginPage = () => {
       </div>
 
       <div className="demo-note">
-        Try to input ~ Kelvin ~ or ~ Gregoire ~ to see demo Data.
+        Try to input ~ Gregoire ~ to see demo Data.
         <p>
           <a href="https://github.com/kelvin8773/your-fitness">
             <i class="fab fa-github-alt fa-2x"></i>
