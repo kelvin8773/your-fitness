@@ -100,7 +100,7 @@ const LoginPage = () => {
       </div>
 
       <div className="demo-note">
-        Try to input "Kelvin" or "Gregoire" to see demo Data.
+        Try to input ~ Kelvin ~ or ~ Gregoire ~ to see demo Data.
       </div>
     </div>
   );
