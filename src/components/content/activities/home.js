@@ -16,7 +16,20 @@ const ActivitiesHomePage = () => {
   const dispatch = useDispatch();
   const { activities } = useSelector(state => state);
   const { goals } = useSelector(state => state.status);
-  const reverseActivities = [...activities].reverse();
+
+  const compare = (a, b) => {
+    const dateA = a.created_at;
+    const dateB = b.created_at;
+
+    let comparison = 0;
+    if (dateA > dateB) {
+      comparison = 1;
+    } else if (dateA < dateB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  const reverseActivities = [...activities].sort(compare).reverse();
 
   let dateTitle;
   let lastTitle;
