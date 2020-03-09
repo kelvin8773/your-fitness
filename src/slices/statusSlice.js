@@ -8,6 +8,7 @@ export const slice = createSlice({
     currentUser: {},
     currentActivity: {},
     currentPage: 'You.Fit',
+    lastPage: '',
     goals: [
       {
         kind: 'walking',
@@ -40,6 +41,7 @@ export const slice = createSlice({
     },
     setCurrentPage: (state, action) => {
       const { payload } = action;
+      state.lastPage = state.currentPage;
       state.currentPage = payload;
     },
     setCurrentUser: (state, action) => {

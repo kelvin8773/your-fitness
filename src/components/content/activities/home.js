@@ -2,11 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { lightFormat } from 'date-fns';
+
 import {
   ACTIVITY_UNITS,
   ACTIVITY_ICONS,
 } from '../../../helpers/constant';
-import { formatDate, formatTime } from '../../../helpers/index';
+import { formatDate } from '../../../helpers/index';
 import { setCurrentPage, setCurrentActivity } from '../../../slices/statusSlice';
 import { getFinish, getDateTitle, getColor } from '../../../helpers/activity';
 
@@ -14,7 +16,7 @@ const ActivitiesHomePage = () => {
   const dispatch = useDispatch();
   const { activities } = useSelector(state => state);
   const { goals } = useSelector(state => state.status);
-  const reverseActivities = [...activities].reverse().slice(0, 5);
+  const reverseActivities = [...activities].reverse();
 
   let dateTitle;
   let lastTitle;
@@ -32,7 +34,7 @@ const ActivitiesHomePage = () => {
           } = activity;
           const createdTime = activity.created_at;
           const activityDate = formatDate(createdTime);
-          const activityTime = formatTime(createdTime);
+          const activityTime = lightFormat(new Date(createdTime), 'hh:mm aaaa');
 
           const temp = getDateTitle(createdTime);
           dateTitle = (lastTitle === temp || lastTitle === 'Few days ago')

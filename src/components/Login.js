@@ -67,12 +67,16 @@ const LoginPage = () => {
           type="text"
           minLength="3"
           maxLength="30"
-          placeholder="Input Your Name to Continue ..."
+          placeholder="Input Your Name ..."
         />
+        <div className="input-tips">
+          Tips: Try ~ Gregoire ~ to see demo Data.
+        </div>
+
         <button type="submit" className="btn">Login</button>
       </form>
 
-      <div className="server-status">
+      <div className="footer-note">
         <div
           className="status-message"
           style={
@@ -97,10 +101,6 @@ const LoginPage = () => {
         }
 
 
-      </div>
-
-      <div className="demo-note">
-        Try to input ~ Gregoire ~ to see demo Data.
         <p>
           <a href="https://github.com/kelvin8773/your-fitness">
             <i className="fab fa-github-alt fa-2x" />
@@ -108,10 +108,9 @@ const LoginPage = () => {
           <a href="https://twitter.com/Kelvin9877">
             <i className="fab fa-twitter fa-2x" />
           </a>
-
         </p>
-
       </div>
+
     </div>
   );
 };
