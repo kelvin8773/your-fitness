@@ -142,10 +142,6 @@ body {
 
       .App-page {
         height: 100%;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-between;
-
 
         .App-header {
           padding: 1.2rem;
@@ -192,7 +188,9 @@ body {
         }
 
         .App-content {
-          height: 100%;
+          overflow: auto;
+          height: 82%;
+          width: 100%;
           z-index: 98;
 
           .home-page {
@@ -436,11 +434,11 @@ body {
                 }
 
               }
-
             }
 
             .more-sign {
               margin-top: 1.5rem;
+              margin-bottom: 1.5rem;
               font-style: italic;
             }
 
@@ -543,7 +541,6 @@ body {
           }
 
           .progress-page {
-            height: 100%;
             display: flex;
             flex-flow: column;
             justify-content: center;
@@ -552,6 +549,7 @@ body {
             color: $white-4;
 
             h3 {
+              margin-top: 6rem;
               font-size: 2rem;
               line-height: 3rem;
               margin-bottom: 2rem;
@@ -559,7 +557,6 @@ body {
 
             i {
               font-size: 6rem;
-              // color: $secondary;
             }
 
           }
@@ -735,6 +732,8 @@ body {
         }
 
         .App-navbar {
+          position: relative;
+          top: 0px;
           background-color: $grey-3;
           color: #eeeeee;
           display: flex;
@@ -761,9 +760,8 @@ body {
 
           }
         }
+
       }
-
-
 
     }
   }

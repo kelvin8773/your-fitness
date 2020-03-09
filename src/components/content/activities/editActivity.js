@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { lightFormat } from 'date-fns'
 
 import {
   ACTIVITY_CHANGE_VALUES,
@@ -15,7 +16,7 @@ import {
 } from '../../../slices/activitiesSlice';
 import { setCurrentPage } from '../../../slices/statusSlice';
 import { getFinish, getColor } from '../../../helpers/activity';
-import { formatDate, formatTime } from '../../../helpers/index';
+import { formatDate } from '../../../helpers/index';
 
 const EditActivity = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const EditActivity = () => {
   const finishing = getFinish(goal.amount, currentActivity.amount);
   const circleColor = getColor(finishing);
   const activityDate = formatDate(currentActivity.updated_at, 'L');
-  const activityTime = formatTime(currentActivity.updated_at);
+  const activityTime = lightFormat(new Date(currentActivity.updated_at), 'hh:mm aaaa');
 
   const handleChange = activity => {
     const updatedActivity = { ...activity, amount: inputAmount };
@@ -108,7 +109,7 @@ const EditActivity = () => {
             name="amount"
             value={inputAmount}
             min="1"
-            onChange={e => setInputAmount(e.target.value)}
+            onChange={e => setInputAmount(parseInt(e.target.value, 10))}
           />
           <button
             type="button"
