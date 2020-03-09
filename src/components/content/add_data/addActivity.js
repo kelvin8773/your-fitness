@@ -69,7 +69,7 @@ const AddActivity = ({ activity }) => {
             name="amount"
             value={inputAmount}
             min="1"
-            onChange={e => setInputAmount(e.target.value)}
+            onChange={e => setInputAmount(parseInt(e.target.value, 10))}
           />
           <button
             type="button"

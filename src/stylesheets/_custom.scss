@@ -26,7 +26,7 @@ body {
         height: 100%;
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        justify-content: flex-end;
 
         .App-logo {
           margin-bottom: 1.5rem;
@@ -39,7 +39,7 @@ body {
           h2 {
             font-family: 'Viga', sans-serif;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
           }
 
           i {
@@ -47,10 +47,10 @@ body {
           }
 
           h3 {
+            font-size: 1rem;
             font-style: italic;
             font-weight: 200;
           }
-
         }
 
         .Login-form {
@@ -65,7 +65,7 @@ body {
             border-radius: 5px;
             outline: none;
             border: 2px solid #efeeee;
-            margin-bottom: 2rem;
+            margin-bottom: 0.3rem;
             text-align: center;
 
             &:focus {
@@ -76,6 +76,13 @@ body {
               border: 2px solid $danger;
             }
 
+          }
+
+          .input-tips {
+            font-size: 0.7rem;
+            font-style: italic;
+            font-weight: 200;
+            margin-bottom: 1.6rem;
           }
 
           button {
@@ -90,13 +97,12 @@ body {
 
         }
 
-        .server-status {
-          margin-bottom: 2rem;
+        .footer-note {
+          margin-bottom: 4rem;
 
           .status-message {
             font-style: italic;
             margin-bottom: 0.6rem;
-
           }
 
           button {
@@ -116,16 +122,8 @@ body {
 
           }
 
-        }
-
-        .demo-note {
-          font-size: 0.8rem;
-          font-weight: 100;
-          color: $grey-4;
-          font-style: italic;
-
           p {
-            margin-top: 2rem;
+            margin-top: 1rem;
             font-size: 0.7rem;
             color: $white-4;
 
@@ -137,16 +135,13 @@ body {
               }
             }
           }
+
         }
 
       }
 
       .App-page {
         height: 100%;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-between;
-
 
         .App-header {
           padding: 1.2rem;
@@ -193,7 +188,9 @@ body {
         }
 
         .App-content {
-          height: 100%;
+          overflow: auto;
+          height: 82%;
+          width: 100%;
           z-index: 98;
 
           .home-page {
@@ -437,11 +434,11 @@ body {
                 }
 
               }
-
             }
 
             .more-sign {
               margin-top: 1.5rem;
+              margin-bottom: 1.5rem;
               font-style: italic;
             }
 
@@ -544,7 +541,24 @@ body {
           }
 
           .progress-page {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
+            color: $white-4;
+
+            h3 {
+              margin-top: 6rem;
+              font-size: 2rem;
+              line-height: 3rem;
+              margin-bottom: 2rem;
+            }
+
+            i {
+              font-size: 6rem;
+            }
+
           }
 
           .more-page {
@@ -718,6 +732,8 @@ body {
         }
 
         .App-navbar {
+          position: relative;
+          top: 0px;
           background-color: $grey-3;
           color: #eeeeee;
           display: flex;
@@ -744,9 +760,8 @@ body {
 
           }
         }
+
       }
-
-
 
     }
   }

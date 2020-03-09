@@ -13,7 +13,7 @@ import HomePage from './content/HomePage';
 import AddDataPage from './content/add_data/index';
 import MorePage from './content/more/index';
 
-import ProgressPage from './content/ProgressPage';
+import ProgressPage from './content/progress/index';
 import ActivitiesPage from './content/activities/index';
 
 const AppPage = () => (
