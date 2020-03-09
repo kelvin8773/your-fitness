@@ -13,7 +13,7 @@ export const ACTIVITY_UNITS = {
   running: 'km',
   cycling: 'km',
   exercise: 'mins',
-  swimming: 'meters',
+  swimming: 'm',
 };
 
 export const ACTIVITY_ACT = {
