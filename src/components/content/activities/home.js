@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { lightFormat } from 'date-fns'
+import { lightFormat } from 'date-fns';
 
 import {
   ACTIVITY_UNITS,
