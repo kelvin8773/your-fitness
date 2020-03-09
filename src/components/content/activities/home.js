@@ -17,7 +17,7 @@ const ActivitiesHomePage = () => {
   const { activities } = useSelector(state => state);
   const { goals } = useSelector(state => state.status);
 
-  const compare = (a, b) => {
+  const sortDate = (a, b) => {
     const dateA = a.created_at;
     const dateB = b.created_at;
 
@@ -29,7 +29,7 @@ const ActivitiesHomePage = () => {
     }
     return comparison;
   }
-  const reverseActivities = [...activities].sort(compare).reverse();
+  const reverseActivities = [...activities].sort(sortDate).reverse();
 
   let dateTitle;
   let lastTitle;
