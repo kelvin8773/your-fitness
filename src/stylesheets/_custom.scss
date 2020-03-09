@@ -26,7 +26,7 @@ body {
         height: 100%;
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        justify-content: flex-end;
 
         .App-logo {
           margin-bottom: 1.5rem;
@@ -39,7 +39,7 @@ body {
           h2 {
             font-family: 'Viga', sans-serif;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
           }
 
           i {
@@ -47,10 +47,10 @@ body {
           }
 
           h3 {
+            font-size: 1rem;
             font-style: italic;
             font-weight: 200;
           }
-
         }
 
         .Login-form {
@@ -65,7 +65,7 @@ body {
             border-radius: 5px;
             outline: none;
             border: 2px solid #efeeee;
-            margin-bottom: 2rem;
+            margin-bottom: 0.3rem;
             text-align: center;
 
             &:focus {
@@ -76,6 +76,13 @@ body {
               border: 2px solid $danger;
             }
 
+          }
+
+          .input-tips {
+            font-size: 0.7rem;
+            font-style: italic;
+            font-weight: 200;
+            margin-bottom: 1.6rem;
           }
 
           button {
@@ -90,13 +97,12 @@ body {
 
         }
 
-        .server-status {
-          margin-bottom: 2rem;
+        .footer-note {
+          margin-bottom: 4rem;
 
           .status-message {
             font-style: italic;
             margin-bottom: 0.6rem;
-
           }
 
           button {
@@ -116,16 +122,8 @@ body {
 
           }
 
-        }
-
-        .demo-note {
-          font-size: 0.8rem;
-          font-weight: 100;
-          color: $grey-4;
-          font-style: italic;
-
           p {
-            margin-top: 2rem;
+            margin-top: 1rem;
             font-size: 0.7rem;
             color: $white-4;
 
@@ -137,6 +135,7 @@ body {
               }
             }
           }
+
         }
 
       }
