@@ -21,17 +21,15 @@
 
 > A Full stack project that include Frontend (React/Redux JS) and Backend (Ruby On Rails).
 
-### ✨ [FrontEnd Demo](https://youfit.netlify.com)
+### ✨ [Frontend demo](https://youfit.netlify.com)
 
-### ✨ [BackEnd Document](https://github.com/kelvin8773/your-fitness-api)
+### ✨ [Backend docs](https://github.com/kelvin8773/your-fitness-api)
 
-## Project Detail
-
-### Tech Stack
+### Tech stack
 * React (Hook)
 * Redux (Redux Tool Kit)
 
-## Project Related Resources
+## Resources
 * [Fontawesome](https://fontawesome.com/start)
 * [UI Design](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI)
 
